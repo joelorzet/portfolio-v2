@@ -1,0 +1,98 @@
+import { Github, Linkedin, Twitter } from '@/assets/icons';
+import { data } from '@/config/data';
+import { DevPortfolio } from './shared/badges/dev-portfolio/DevPortfolio';
+
+export const Footer = () => {
+    const currentYear = new Date().getFullYear();
+
+    return (
+        <footer className="py-10 border-t bg-slate-900 border-slate-800">
+            <div className="container px-4 mx-auto sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+                    <div className="md:col-span-2">
+                        <DevPortfolio spacing="medium" />
+                        <p className="max-w-md mb-6 text-slate-400">
+                            Building exceptional digital experiences with modern technologies. Specializing in frontend,
+                            backend, and blockchain development.
+                        </p>
+                        <div className="flex space-x-4">
+                            <a
+                                href={data.social.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2 transition-colors rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-indigo-600"
+                            >
+                                <Github className="w-5 h-5" />
+                            </a>
+                            <a
+                                href={data.social.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2 transition-colors rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-indigo-600"
+                            >
+                                <Linkedin className="w-5 h-5" />
+                            </a>
+                            <a
+                                href={data.social.twitter}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2 transition-colors rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-indigo-600"
+                            >
+                                <Twitter className="w-5 h-5" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 className="mb-4 text-lg font-semibold text-white">Quick Links</h3>
+                        <ul className="space-y-2">
+                            {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) => (
+                                <li key={item}>
+                                    <a
+                                        href={`#${item.toLowerCase()}`}
+                                        className="transition-colors text-slate-400 hover:text-indigo-400"
+                                    >
+                                        {item}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 className="mb-4 text-lg font-semibold text-white">Services</h3>
+                        <ul className="space-y-2">
+                            {[
+                                'Frontend Development',
+                                'Backend Development',
+                                'Full Stack Solutions',
+                                'Blockchain Development',
+                                'Smart Contract Auditing',
+                                'Technical Consultation',
+                            ].map((service, index) => (
+                                <li key={index}>
+                                    <a
+                                        href="#contact"
+                                        className="transition-colors text-slate-400 hover:text-indigo-400"
+                                    >
+                                        {service}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-between pt-6 mt-10 border-t border-slate-800 sm:flex-row">
+                    <p className="mb-4 text-sm text-slate-500 sm:mb-0">
+                        &copy; {currentYear} {data.name}. All rights reserved.
+                    </p>
+                    <p className="text-sm text-slate-500">
+                        Designed and built with <span className="text-red-500">♥</span> by{' '}
+                        <span className="text-indigo-400">{data.name}</span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    );
+};
