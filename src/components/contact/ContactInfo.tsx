@@ -1,8 +1,21 @@
 import { Mail, MapPin } from 'lucide-react';
 import { data } from '@/config/data';
 import { SocialLinks } from '@/components/SocialLinks';
+import { useService } from '@/hooks/useService';
 
-export const ContactInfo = () => {
+export function ContactInfo() {
+    const { setCurrentService } = useService();
+
+    const handleCallToAction = () => {
+        setCurrentService({
+            label: 'Available for Hire',
+            description: 'I am looking for a developer to assist me with my project.',
+            callToAction: `Hey Joel, Im Paul and your profile caught my attention. I am looking for a developer to assist me with my project.
+                
+Do you have some time to talk?`,
+        });
+    };
+
     return (
         <div className="space-y-6">
             <div className="p-6 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700">
@@ -44,12 +57,15 @@ export const ContactInfo = () => {
             <div className="p-6 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700">
                 <h3 className="mb-4 text-xl font-semibold">Current Availability</h3>
                 <p className="mb-3 text-slate-300">
-                    I'm currently available for freelance work and open to discussing new opportunities.
+                    If you're interested in my profile or have a project idea in mind, feel free to reach out. I'm
+                    always open to connecting and exploring new opportunities together.
                 </p>
-                <div className="inline-flex items-center justify-center p-2 rounded-full bg-green-500/10">
-                    <span className="px-4 text-sm font-medium text-green-400">Available for hire</span>
+                <div className="inline-flex items-center justify-center p-2 transition-all duration-300 rounded-full bg-green-500/10 hover:scale-105">
+                    <button onClick={handleCallToAction} className="px-4 text-sm font-medium text-green-400">
+                        Let’s talk →
+                    </button>
                 </div>
             </div>
         </div>
     );
-};
+}

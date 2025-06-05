@@ -1,7 +1,5 @@
-import { Github } from 'lucide-react';
-
 import { data } from '@/config/data';
-import { Linkedin, Twitter } from 'lucide-react';
+import { Twitter, Linkedin, Github } from '@/assets/icons';
 
 export function SocialLinks() {
     return (
@@ -28,7 +26,7 @@ export function SocialLinks() {
                 rel="noopener noreferrer"
                 className="transition-colors text-slate-400 hover:text-white"
             >
-                <Twitter className="w-5 h-5" />
+                <Twitter className="w-5 h-5 transition-colors text-slate-400 hover:text-white" />
             </a>
         </div>
     );

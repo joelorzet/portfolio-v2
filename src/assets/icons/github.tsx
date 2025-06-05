@@ -18,7 +18,7 @@ export function GitHubIcon({ width = 48, height = 48, variant = 'white' }: GitHu
             xmlnsXlink="http://www.w3.org/1999/xlink"
         >
             <defs></defs>
-            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                 <g
                     id="Dribbble-Light-Preview"
                     transform="translate(-140.000000, -7559.000000)"

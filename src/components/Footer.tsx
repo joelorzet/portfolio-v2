@@ -1,9 +1,12 @@
 import { Github, Linkedin, Twitter } from '@/assets/icons';
 import { data } from '@/config/data';
-import { DevPortfolio } from './shared/badges/dev-portfolio/DevPortfolio';
+import { DevPortfolio } from './shared/dev-portfolio/DevPortfolio';
+import { Link } from './shared/link/Link';
+import { useService } from '@/hooks/useService';
 
-export const Footer = () => {
+export function Footer() {
     const currentYear = new Date().getFullYear();
+    const { setCurrentService } = useService();
 
     return (
         <footer className="py-10 border-t bg-slate-900 border-slate-800">
@@ -16,30 +19,9 @@ export const Footer = () => {
                             backend, and blockchain development.
                         </p>
                         <div className="flex space-x-4">
-                            <a
-                                href={data.social.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 transition-colors rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-indigo-600"
-                            >
-                                <Github className="w-5 h-5" />
-                            </a>
-                            <a
-                                href={data.social.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 transition-colors rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-indigo-600"
-                            >
-                                <Linkedin className="w-5 h-5" />
-                            </a>
-                            <a
-                                href={data.social.twitter}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 transition-colors rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-indigo-600"
-                            >
-                                <Twitter className="w-5 h-5" />
-                            </a>
+                            <Link href={data.social.github} icon={<Github className="w-5 h-5" />} />
+                            <Link href={data.social.linkedin} icon={<Linkedin className="w-5 h-5" />} />
+                            <Link href={data.social.twitter} icon={<Twitter className="w-5 h-5" />} />
                         </div>
                     </div>
 
@@ -62,20 +44,14 @@ export const Footer = () => {
                     <div>
                         <h3 className="mb-4 text-lg font-semibold text-white">Services</h3>
                         <ul className="space-y-2">
-                            {[
-                                'Frontend Development',
-                                'Backend Development',
-                                'Full Stack Solutions',
-                                'Blockchain Development',
-                                'Smart Contract Auditing',
-                                'Technical Consultation',
-                            ].map((service, index) => (
-                                <li key={index}>
+                            {Object.entries(data.services).map(([key, value]) => (
+                                <li key={key}>
                                     <a
                                         href="#contact"
                                         className="transition-colors text-slate-400 hover:text-indigo-400"
+                                        onClick={() => setCurrentService(value)}
                                     >
-                                        {service}
+                                        {value.label}
                                     </a>
                                 </li>
                             ))}
@@ -95,4 +71,4 @@ export const Footer = () => {
             </div>
         </footer>
     );
-};
+}

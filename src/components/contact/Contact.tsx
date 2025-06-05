@@ -1,7 +1,7 @@
 import { ContactInfo } from './ContactInfo';
 import { ContactForm } from './ContactForm';
 
-export const Contact = () => {
+export function Contact() {
     return (
         <section id="contact" className="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
             <div className="container px-4 mx-auto sm:px-6 lg:px-8">
@@ -25,4 +25,4 @@ export const Contact = () => {
             </div>
         </section>
     );
-};
+}
