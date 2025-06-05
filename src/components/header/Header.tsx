@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+
 import { MobileSocialLinks, SocialLinks } from '@/components/header/social/SocialLinks';
 import { MobileNavigation, Navigation } from '@/components/header/navigation/Navigation';
 import { DevPortfolio } from '@/components/shared/dev-portfolio/DevPortfolio';
+import { Twitter, Menu } from '@/assets/icons';
 
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,7 +42,7 @@ export const Header = () => {
 
                     {/* Mobile Menu Button */}
                     <button className="md:hidden text-slate-200" onClick={toggleMenu}>
-                        {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        {isMenuOpen ? <Twitter className="w-6 h-6" variant="default" /> : <Menu className="w-6 h-6" />}
                     </button>
                 </div>
             </div>
