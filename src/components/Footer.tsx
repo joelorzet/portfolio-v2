@@ -19,13 +19,9 @@ export const Footer = () => {
                             backend, and blockchain development.
                         </p>
                         <div className="flex space-x-4">
-                            <Link href={data.social.github} label="GitHub" icon={<Github className="w-5 h-5" />} />
-                            <Link
-                                href={data.social.linkedin}
-                                label="LinkedIn"
-                                icon={<Linkedin className="w-5 h-5" />}
-                            />
-                            <Link href={data.social.twitter} label="Twitter" icon={<Twitter className="w-5 h-5" />} />
+                            <Link href={data.social.github} icon={<Github className="w-5 h-5" />} />
+                            <Link href={data.social.linkedin} icon={<Linkedin className="w-5 h-5" />} />
+                            <Link href={data.social.twitter} icon={<Twitter className="w-5 h-5" />} />
                         </div>
                     </div>
 
