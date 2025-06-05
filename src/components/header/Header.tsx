@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { MobileSocialLinks, SocialLinks } from '@/components/header/social/SocialLinks';
 import { MobileNavigation, Navigation } from '@/components/header/navigation/Navigation';
-import { DevPortfolio } from '@/components/shared/badges/dev-portfolio/DevPortfolio';
+import { DevPortfolio } from '@/components/shared/dev-portfolio/DevPortfolio';
 
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
