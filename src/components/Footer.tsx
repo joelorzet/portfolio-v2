@@ -1,6 +1,7 @@
 import { Github, Linkedin, Twitter } from '@/assets/icons';
 import { data } from '@/config/data';
-import { DevPortfolio } from './shared/badges/dev-portfolio/DevPortfolio';
+import { DevPortfolio } from './shared/dev-portfolio/DevPortfolio';
+import { Link } from './shared/link/Link';
 
 export const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -16,30 +17,13 @@ export const Footer = () => {
                             backend, and blockchain development.
                         </p>
                         <div className="flex space-x-4">
-                            <a
-                                href={data.social.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 transition-colors rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-indigo-600"
-                            >
-                                <Github className="w-5 h-5" />
-                            </a>
-                            <a
+                            <Link href={data.social.github} label="GitHub" icon={<Github className="w-5 h-5" />} />
+                            <Link
                                 href={data.social.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 transition-colors rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-indigo-600"
-                            >
-                                <Linkedin className="w-5 h-5" />
-                            </a>
-                            <a
-                                href={data.social.twitter}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 transition-colors rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-indigo-600"
-                            >
-                                <Twitter className="w-5 h-5" />
-                            </a>
+                                label="LinkedIn"
+                                icon={<Linkedin className="w-5 h-5" />}
+                            />
+                            <Link href={data.social.twitter} label="Twitter" icon={<Twitter className="w-5 h-5" />} />
                         </div>
                     </div>
 
