@@ -2,9 +2,11 @@ import { Github, Linkedin, Twitter } from '@/assets/icons';
 import { data } from '@/config/data';
 import { DevPortfolio } from './shared/dev-portfolio/DevPortfolio';
 import { Link } from './shared/link/Link';
+import { useService } from '@/hooks/useService';
 
 export const Footer = () => {
     const currentYear = new Date().getFullYear();
+    const { setCurrentService } = useService();
 
     return (
         <footer className="py-10 border-t bg-slate-900 border-slate-800">
@@ -46,20 +48,14 @@ export const Footer = () => {
                     <div>
                         <h3 className="mb-4 text-lg font-semibold text-white">Services</h3>
                         <ul className="space-y-2">
-                            {[
-                                'Frontend Development',
-                                'Backend Development',
-                                'Full Stack Solutions',
-                                'Blockchain Development',
-                                'Smart Contract Auditing',
-                                'Technical Consultation',
-                            ].map((service, index) => (
-                                <li key={index}>
+                            {Object.entries(data.services).map(([key, value]) => (
+                                <li key={key}>
                                     <a
                                         href="#contact"
                                         className="transition-colors text-slate-400 hover:text-indigo-400"
+                                        onClick={() => setCurrentService(value)}
                                     >
-                                        {service}
+                                        {value.label}
                                     </a>
                                 </li>
                             ))}
