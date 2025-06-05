@@ -8,8 +8,6 @@ import {
     TailwindIcon,
     TypeScriptIcon,
     NestJSIcon,
-    NodeJSIcon,
-    ExpressIcon,
     EthereumIcon,
     StellarIcon,
     AptosIcon,
@@ -18,7 +16,14 @@ import {
     GitHubIcon,
     ORMIcon,
     CypressIcon,
+    AwsIcon,
+    Database,
+    JestIcon,
+    KubernetesIcon,
+    NodeJSIcon,
 } from '@/assets/icons';
+import { InfrastructureIcon } from '@/assets/icons/infrastructure';
+import { OracleIcon } from '@/assets/icons/oracle';
 
 type Skill = {
     label: string;
@@ -55,8 +60,8 @@ export function Skills() {
             icon: <Server className="w-6 h-6 text-blue-400" />,
             skills: [
                 { label: 'NestJS', icon: <NestJSIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
-                { label: 'Node.js', icon: <NodeJSIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
-                { label: 'Express', icon: <ExpressIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
+                { label: 'PostgreSQL', icon: <Database className="w-6 h-6" width={iconSize} height={iconSize} /> },
+                { label: 'NodeJs', icon: <NodeJSIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
                 { label: 'TypeORM', icon: <ORMIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
             ],
         },
@@ -70,16 +75,26 @@ export function Skills() {
             ],
         },
         {
+            name: 'Infrastructure',
+            icon: <InfrastructureIcon className="w-6 h-6" width={iconSize} height={iconSize} />,
+            skills: [
+                { label: 'AWS', icon: <AwsIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
+                { label: 'Oracle', icon: <OracleIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
+                { label: 'Docker', icon: <DockerIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
+                {
+                    label: 'Kubernetes',
+                    icon: <KubernetesIcon className="w-6 h-6" width={iconSize} height={iconSize} />,
+                },
+            ],
+        },
+        {
             name: 'Other',
             icon: <Globe className="w-6 h-6 text-green-400" />,
             skills: [
                 { label: 'Git/GitHub', icon: <GitHubIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
-                { label: 'Docker', icon: <DockerIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
                 { label: 'CI/CD', icon: <CICDIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
-                {
-                    label: 'E2E Testing',
-                    icon: <CypressIcon className="w-6 h-6" width={iconSize} height={iconSize} />,
-                },
+                { label: 'E2E Testing', icon: <CypressIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
+                { label: 'Jest', icon: <JestIcon className="w-6 h-6" width={iconSize} height={iconSize} /> },
             ],
         },
     ];
@@ -96,7 +111,7 @@ export function Skills() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div className="grid justify-center grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {skillCategories.map((category, index) => (
                         <div
                             key={index}
