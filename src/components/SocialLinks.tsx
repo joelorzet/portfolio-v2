@@ -31,7 +31,7 @@ export function SocialLinks({ className = '', iconClassName = '' }: SocialLinksP
                 rel="noopener noreferrer"
                 className={`p-2 transition-colors rounded-full bg-slate-700 text-slate-300 hover:text-white hover:bg-blue-500 ${iconClassName}`}
             >
-                <Twitter className="w-5 h-5 transition-colors text-slate-400 hover:text-white" />
+                <Twitter className="w-5 h-5 transition-colors" />
             </a>
         </div>
     );
