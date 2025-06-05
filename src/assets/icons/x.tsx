@@ -1,3 +1,3 @@
-import { X as LucideX } from 'lucide-react';
+import { Twitter } from './twitter';
 
-export const X = LucideX;
+export const X = Twitter;
