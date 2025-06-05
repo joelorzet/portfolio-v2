@@ -41,3 +41,8 @@ export { Layout } from './layout.tsx';
 export { Server } from './server.tsx';
 export { Globe } from './globe.tsx';
 export { CypressIcon } from './cypress.tsx';
+export { InfrastructureIcon } from './infrastructure.tsx';
+export { OracleIcon } from './oracle.tsx';
+export { AwsIcon } from './aws.tsx';
+export { JestIcon } from './jest.tsx';
+export { KubernetesIcon } from './kubernetes.tsx';
