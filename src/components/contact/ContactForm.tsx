@@ -1,6 +1,9 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { data } from '@/config/data';
 import { Loader, Send } from '@/assets/icons';
+import { useService } from '@/hooks/useService';
+import { Input } from '../shared/inputs/Input';
+import { useInView } from 'react-intersection-observer';
 
 interface ContactFormData {
     name: string;
@@ -9,13 +12,24 @@ interface ContactFormData {
     message: string;
 }
 
-export const ContactForm = () => {
+export function ContactForm() {
     const [formData, setFormData] = useState<ContactFormData>({
         name: '',
         email: '',
         subject: 'Project Inquiry',
         message: '',
     });
+    const { currentService, setCurrentService } = useService();
+
+    const { ref, inView } = useInView({
+        threshold: 0.5,
+    });
+
+    useEffect(() => {
+        if (!inView) {
+            setCurrentService(null);
+        }
+    }, [inView, setCurrentService]);
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState<{
@@ -48,58 +62,36 @@ export const ContactForm = () => {
 
     return (
         <div className="p-6 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700">
-            <h3 className="mb-6 text-xl font-semibold">Send Me a Message</h3>
+            <h3 className="mb-6 text-xl font-semibold" ref={ref}>
+                Send Me a Message
+            </h3>
 
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div>
-                        <label htmlFor="name" className="block mb-1 text-sm font-medium text-slate-300">
-                            Your Name
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            required
-                            className="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                            placeholder={data.name}
-                        />
-                    </div>
-
-                    <div>
-                        <label htmlFor="email" className="block mb-1 text-sm font-medium text-slate-300">
-                            Email Address
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            className="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                            placeholder={data.email}
-                        />
-                    </div>
-                </div>
-
-                <div>
-                    <label htmlFor="subject" className="block mb-1 text-sm font-medium text-slate-300">
-                        Subject
-                    </label>
-                    <input
-                        type="text"
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
+                    <Input
+                        label="Your Name"
+                        name="name"
+                        value={formData.name}
+                        placeholder={data.name}
                         onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                        placeholder="Project Inquiry"
+                    />
+
+                    <Input
+                        label="Email Address"
+                        name="email"
+                        value={formData.email}
+                        placeholder={data.email}
+                        onChange={handleChange}
                     />
                 </div>
+
+                <Input
+                    label="Subject"
+                    name="subject"
+                    value={currentService?.label ? `${currentService?.label} Inquiry` : formData.subject}
+                    placeholder="Project Inquiry"
+                    onChange={handleChange}
+                />
 
                 <div>
                     <label htmlFor="message" className="block mb-1 text-sm font-medium text-slate-300">
@@ -108,7 +100,7 @@ export const ContactForm = () => {
                     <textarea
                         id="message"
                         name="message"
-                        value={formData.message}
+                        value={currentService?.callToAction ? currentService?.callToAction : formData.message}
                         onChange={handleChange}
                         required
                         rows={5}
@@ -153,4 +145,4 @@ export const ContactForm = () => {
             </form>
         </div>
     );
-};
+}
