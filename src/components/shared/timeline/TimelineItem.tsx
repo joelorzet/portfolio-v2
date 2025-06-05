@@ -18,9 +18,9 @@ export function TimelineItem({ children, index = globalIndex++ }: ITimelineItemP
         <div className="relative">
             <div className="absolute left-0 z-10 w-4 h-4 transform -translate-x-1/2 bg-indigo-500 rounded-full md:left-1/2 -translate-y-1/3"></div>
 
-            <div className={`flex flex-col md:flex-row ${isEven ? 'md:flex-row-reverse' : ''}`}>
+            <div className={`flex flex-col md:flex-row ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
                 <div className="flex items-start justify-start pb-8 md:w-1/2 md:pb-0 md:justify-end">
-                    <div className={`px-4 ${isEven ? 'md:pr-16' : 'md:pl-0 md:pr-16'}`}>{dateComponent}</div>
+                    <div className={`px-4 ${isEven ? 'md:pl-16 md:mr-auto' : 'md:pl-0 md:pr-16'}`}>{dateComponent}</div>
                 </div>
 
                 <div className="pl-8 md:w-1/2 md:pl-16">
