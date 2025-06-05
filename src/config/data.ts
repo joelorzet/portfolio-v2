@@ -6,9 +6,9 @@ export const data: IData = {
     profilePicture: '/profile.webp',
     address: 'Misiones, Argentina',
     social: {
-        linkedin: 'https://www.linkedin.com/in/joelorzet/',
+        linkedin: 'https://linkedin.com/in/joelorzet',
         github: 'https://github.com/joelorzet',
-        twitter: 'https://twitter.com/joelorzet',
+        twitter: 'https://x.com/joelorzet',
     },
     navigation: {
         home: {
