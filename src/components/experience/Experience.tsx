@@ -20,39 +20,30 @@ export const Experience = () => {
     const experiences: ExperienceItem[] = [
         {
             id: 1,
-            title: 'Senior Blockchain Developer',
-            company: 'DeFi Solutions',
-            period: '2021 - Present',
+            title: 'Blockchain Developer',
+            company: 'Bigger',
+            period: 'Dec 2024 – Present',
             description:
-                'Leading the development of decentralized finance applications on Ethereum and Stellar networks. Implementing smart contracts and designing secure architecture for financial protocols.',
-            technologies: ['Ethereum', 'Solidity', 'Web3.js', 'Stellar', 'React'],
+                'Participated in blockchain projects using Stellar and Ethereum, contributing to smart contract integration and mentoring teams during the Stellar blockchain bootcamp. Supported feature planning, sprint workflows, and cross-team collaboration as part of the delivery team.',
+            technologies: ['Stellar', 'Ethereum', 'Solidity', 'NestJS', 'Agile'],
         },
         {
             id: 2,
-            title: 'Full Stack Developer',
-            company: 'Tech Innovations Inc.',
-            period: '2019 - 2021',
+            title: 'Software Developer Semi Senior',
+            company: 'Bigger',
+            period: 'June 2023 – Dec 2024',
             description:
-                'Developed and maintained full-stack web applications using React for frontend and NestJS for backend services. Implemented CI/CD pipelines and containerized applications with Docker.',
-            technologies: ['React', 'NestJS', 'TypeScript', 'PostgreSQL', 'Docker'],
+                'Designed scalable backend services with NestJS and TypeORM, led E2E testing with Cypress, and integrated external APIs. Contributed to blockchain-based solutions using Stellar and Ethereum smart contracts.',
+            technologies: ['NestJS', 'TypeORM', 'Cypress', 'Stellar', 'Ethereum', 'Docker'],
         },
         {
             id: 3,
-            title: 'Frontend Developer',
-            company: 'Creative Solutions',
-            period: '2017 - 2019',
+            title: 'Software Developer Jr.',
+            company: 'Bigger',
+            period: 'Dec 2022 – June 2023',
             description:
-                'Built responsive and interactive user interfaces using Angular and modern CSS techniques. Collaborated with UX designers to implement pixel-perfect designs and optimize user experience.',
-            technologies: ['Angular', 'SCSS', 'JavaScript', 'RxJS', 'RESTful APIs'],
-        },
-        {
-            id: 4,
-            title: 'Junior Web Developer',
-            company: 'Digital Agency',
-            period: '2015 - 2017',
-            description:
-                'Started as a junior developer working on various client projects. Gained experience with JavaScript frameworks and backend development with Node.js and Express.',
-            technologies: ['JavaScript', 'Node.js', 'Express', 'MongoDB', 'HTML/CSS'],
+                'Developed and maintained full-stack features using Angular and NestJS. Participated in agile ceremonies, enhanced code stability, and collaborated in code reviews.',
+            technologies: ['Angular', 'NestJS', 'Git', 'Jest', 'Agile'],
         },
     ];
 
