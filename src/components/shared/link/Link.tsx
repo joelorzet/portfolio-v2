@@ -4,7 +4,7 @@ import { cn } from '@/utils/styles';
 
 interface ILinkProps {
     href: string;
-    label: string;
+    label?: string;
     icon?: ReactNode;
     sameTab?: boolean;
     className?: string;
@@ -22,7 +22,7 @@ export function Link({ href, label, icon, sameTab = false, className }: ILinkPro
             )}
         >
             {icon && icon}
-            {label}
+            {label && label}
         </a>
     );
 }
