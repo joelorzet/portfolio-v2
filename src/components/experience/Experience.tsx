@@ -16,7 +16,7 @@ type ExperienceItem = {
     technologies: string[];
 };
 
-export const Experience = () => {
+export function Experience() {
     const experiences: ExperienceItem[] = [
         {
             id: 1,
@@ -88,4 +88,4 @@ export const Experience = () => {
             ))}
         </Timeline>
     );
-};
+}

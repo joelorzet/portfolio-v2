@@ -5,7 +5,7 @@ import { MobileNavigation, Navigation } from '@/components/header/navigation/Nav
 import { DevPortfolio } from '@/components/shared/dev-portfolio/DevPortfolio';
 import { Twitter, Menu } from '@/assets/icons';
 
-export const Header = () => {
+export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -59,4 +59,4 @@ export const Header = () => {
             )}
         </header>
     );
-};
+}

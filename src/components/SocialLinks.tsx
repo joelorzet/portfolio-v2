@@ -6,7 +6,7 @@ interface SocialLinksProps {
     iconClassName?: string;
 }
 
-export const SocialLinks = ({ className = '', iconClassName = '' }: SocialLinksProps) => {
+export function SocialLinks({ className = '', iconClassName = '' }: SocialLinksProps) {
     return (
         <div className={`flex space-x-4 ${className}`}>
             <a
@@ -35,4 +35,4 @@ export const SocialLinks = ({ className = '', iconClassName = '' }: SocialLinksP
             </a>
         </div>
     );
-};
+}

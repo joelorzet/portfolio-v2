@@ -4,7 +4,7 @@ import { DevPortfolio } from './shared/dev-portfolio/DevPortfolio';
 import { Link } from './shared/link/Link';
 import { useService } from '@/hooks/useService';
 
-export const Footer = () => {
+export function Footer() {
     const currentYear = new Date().getFullYear();
     const { setCurrentService } = useService();
 
@@ -71,4 +71,4 @@ export const Footer = () => {
             </div>
         </footer>
     );
-};
+}
