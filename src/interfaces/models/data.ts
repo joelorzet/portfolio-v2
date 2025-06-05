@@ -23,6 +23,7 @@ export interface INavigation {
 export interface IService {
     label: string;
     description: string;
+    callToAction: string;
 }
 
 export interface IServiceGroup {

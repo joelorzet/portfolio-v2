@@ -118,27 +118,39 @@ export const data: IData = {
         frontend: {
             label: 'Frontend Development',
             description: 'Building responsive and user-friendly web applications using modern technologies.',
+            callToAction:
+                "Hi, I'm Paul, and I have a project that I'd like to discuss with you. I am looking for a front-end developer to assist me with it.",
         },
         backend: {
             label: 'Backend Development',
             description: 'Building robust and scalable server-side applications using modern technologies.',
+            callToAction:
+                "Hi, I'm Paul, and I have a project that I'd like to discuss with you. I'm developing a web solution and I already have the front end. I am looking for a back-end developer to help me with my project.",
         },
         fullstack: {
             label: 'FullStack Solutions',
             description: 'Building fullstack applications using modern technologies.',
+            callToAction:
+                "Hi, I'm Paul, and I have a project that I'd like to discuss with you. I'm developing a web solution for my business and I need a developer to assist me.",
         },
         blockchain: {
             label: 'Blockchain Development',
             description: 'Building decentralized applications using blockchain technologies.',
+            callToAction:
+                "Hi, I'm Paul, and I have a project that I'd like to discuss with you. I am looking for a developer to assist me with it. I'm building a blockchain project.",
         },
         smartcontract: {
             label: 'Smart Contract Development',
             description: 'Building smart contracts using modern technologies.',
+            callToAction:
+                "Hi, I'm Paul, and I have a project that I'd like to discuss with you. I am looking for a developer to assist me with it. I'm building a blockchain project and I need a smart contract.",
         },
         technicalConsulting: {
             label: 'Technical Consulting',
             description:
                 'Providing technical consulting services to help businesses improve their technical capabilities.',
+            callToAction:
+                "Hi, I'm Paul, and I have a project that I'd like to discuss with you. I am looking for a technical consultant to assist me.",
         },
     },
 };
