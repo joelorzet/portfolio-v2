@@ -6,7 +6,7 @@ class ContactService implements IContactService {
     constructor(private readonly httpService: HttpService) {}
 
     async sendMessage(payload: IContactMessage) {
-        await this.httpService.post('/contact', { payload });
+        await this.httpService.post('contact', payload);
     }
 }
 

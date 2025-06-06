@@ -1,17 +1,20 @@
 import { HttpClient, RequestConfig } from '@/config/http.client';
 
 export class HttpService {
-    constructor(private readonly httpClient: HttpClient) {}
+    constructor(
+        private readonly httpClient: HttpClient,
+        private readonly baseUrl: string,
+    ) {}
 
-    async get<T>(url: string, config?: RequestConfig): Promise<T> {
-        return this.httpClient.get(url, config);
+    async get<T>(resource: string, config?: RequestConfig): Promise<T> {
+        return this.httpClient.get(`${this.baseUrl}/${resource}`, config);
     }
 
-    async post<T, K = unknown>(url: string, data?: K, config?: RequestConfig): Promise<T> {
-        return this.httpClient.post(url, data, config);
+    async post<T, K = unknown>(resource: string, data?: K, config?: RequestConfig): Promise<T> {
+        return this.httpClient.post(`${this.baseUrl}/${resource}`, data, config);
     }
 }
 
-const httpClient = new HttpClient(import.meta.env.VITE_API_URL);
+const httpClient = new HttpClient();
 
-export const httpService = new HttpService(httpClient);
+export const httpService = new HttpService(httpClient, import.meta.env.VITE_API_URL);

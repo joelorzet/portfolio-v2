@@ -6,15 +6,7 @@ export type RequestConfig = {
 };
 
 export class HttpClient {
-    private readonly baseURL: string;
-
-    constructor(baseURL: string) {
-        this.baseURL = baseURL;
-    }
-
-    async request<T>(config: RequestConfig): Promise<T> {
-        const url = config.url?.startsWith('http') ? config.url : `${this.baseURL}${config.url || ''}`;
-
+    async request<T>(url: string, config: RequestConfig): Promise<T> {
         const response = await fetch(url, {
             method: config.method || 'GET',
             headers: {
@@ -32,10 +24,10 @@ export class HttpClient {
     }
 
     async get<T>(url: string, config?: RequestConfig): Promise<T> {
-        return this.request({ url, ...config });
+        return this.request(url, { method: 'GET', ...config });
     }
 
     async post<T, K = unknown>(url: string, data?: K, config?: RequestConfig): Promise<T> {
-        return this.request({ url, method: 'POST', data, ...config });
+        return this.request(url, { method: 'POST', data, ...config });
     }
 }
