@@ -2,7 +2,7 @@ import { IData } from '@/interfaces/models/data';
 
 export const data: IData = {
     name: 'Joel Orzet',
-    email: 'joelorzt@gmail.com',
+    email: 'info@joelorzet.dev',
     profilePicture: '/profile.webp',
     address: 'Misiones, Argentina',
     social: {
