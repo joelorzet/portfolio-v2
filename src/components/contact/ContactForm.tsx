@@ -1,5 +1,4 @@
 import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
-import { data } from '@/config/data';
 import { Loader, Send } from '@/assets/icons';
 import { useService } from '@/hooks/useService';
 import { Input } from '../shared/inputs/Input';
@@ -19,15 +18,32 @@ export function ContactForm() {
         subject: 'Project Inquiry',
         message: '',
     });
-    const { currentService, setCurrentService } = useService();
+
+    const { currentService, setCurrentService, handleSendMessage } = useService();
 
     const { ref, inView } = useInView({
         threshold: 0.5,
     });
 
     useEffect(() => {
+        if (currentService) {
+            setFormData((prev) => ({
+                ...prev,
+                subject: currentService.label ? `${currentService.label} Inquiry` : prev.subject,
+                message: currentService.callToAction ? currentService.callToAction : prev.message,
+            }));
+        }
+    }, [currentService]);
+
+    useEffect(() => {
         if (!inView) {
             setCurrentService(null);
+            setFormData({
+                name: '',
+                email: '',
+                subject: 'Project Inquiry',
+                message: '',
+            });
         }
     }, [inView, setCurrentService]);
 
@@ -42,9 +58,11 @@ export function ContactForm() {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
+
+        await handleSendMessage(formData);
 
         setTimeout(() => {
             setIsSubmitting(false);
@@ -72,7 +90,7 @@ export function ContactForm() {
                         label="Your Name"
                         name="name"
                         value={formData.name}
-                        placeholder={data.name}
+                        placeholder="Paul Smith"
                         onChange={handleChange}
                     />
 
@@ -80,7 +98,7 @@ export function ContactForm() {
                         label="Email Address"
                         name="email"
                         value={formData.email}
-                        placeholder={data.email}
+                        placeholder="paul@mycompany.com"
                         onChange={handleChange}
                     />
                 </div>
@@ -88,7 +106,7 @@ export function ContactForm() {
                 <Input
                     label="Subject"
                     name="subject"
-                    value={currentService?.label ? `${currentService?.label} Inquiry` : formData.subject}
+                    value={formData.subject}
                     placeholder="Project Inquiry"
                     onChange={handleChange}
                 />
@@ -100,7 +118,7 @@ export function ContactForm() {
                     <textarea
                         id="message"
                         name="message"
-                        value={currentService?.callToAction ? currentService?.callToAction : formData.message}
+                        value={formData.message}
                         onChange={handleChange}
                         required
                         rows={5}

@@ -8,7 +8,7 @@ export function ContactInfo() {
 
     const handleCallToAction = () => {
         setCurrentService({
-            label: 'Available for Hire',
+            label: 'Availability for Hire',
             description: 'I am looking for a developer to assist me with my project.',
             callToAction: `Hey Joel, Im Paul and your profile caught my attention. I am looking for a developer to assist me with my project.
                 
