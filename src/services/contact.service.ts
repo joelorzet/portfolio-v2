@@ -1,13 +1,14 @@
 import { IContactMessage } from '@/interfaces/models/contact';
-import { HttpService, httpService } from './http.service';
+import { apiService } from './api.service';
 import { IContactService } from '@/interfaces/services/IContactService';
+import { IAPIService } from '@/interfaces/services/IAPIService';
 
 class ContactService implements IContactService {
-    constructor(private readonly httpService: HttpService) {}
+    constructor(private readonly apiService: IAPIService) {}
 
     async sendMessage(payload: IContactMessage) {
-        await this.httpService.post('contact', payload);
+        await this.apiService.post('contact', payload);
     }
 }
 
-export const contactService = new ContactService(httpService);
+export const contactService = new ContactService(apiService);
