@@ -1,3 +1,4 @@
+import { HttpError } from '@/common/errors/request/http';
 import { IRequestConfig } from '@/interfaces/config/IRequest';
 
 export class HttpClient {
@@ -12,10 +13,10 @@ export class HttpClient {
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new HttpError(`HTTP error! status: ${response.status}`, response.status);
         }
 
-        return response.json();
+        return await response.json();
     }
 
     async get<T>(url: string, config?: IRequestConfig): Promise<T> {
