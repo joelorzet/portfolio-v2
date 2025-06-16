@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useCallback, useState } from 'react';
+import { createContext, ReactNode, useCallback, useMemo, useState } from 'react';
 import { IServiceContext } from '@/interfaces/contexts/IServiceContext';
 import { IService } from '@/interfaces/models/data';
 import { contactService } from '@/services/contact.service';
@@ -7,7 +7,7 @@ import { IContactMessage } from '@/interfaces/models/contact';
 export const ServiceContext = createContext<IServiceContext | null>(null);
 
 type IProps = {
-    children: ReactNode;
+    readonly children: ReactNode;
 };
 
 export function ServicesProvider({ children }: IProps) {
@@ -21,11 +21,11 @@ export function ServicesProvider({ children }: IProps) {
         }
     }, []);
 
-    const contextValue = {
+    const contextValue = useMemo(() => ({
         currentService,
         setCurrentService,
         handleSendMessage,
-    };
+    }), [currentService, setCurrentService, handleSendMessage]);
 
     return <ServiceContext.Provider value={contextValue}>{children}</ServiceContext.Provider>;
 }
