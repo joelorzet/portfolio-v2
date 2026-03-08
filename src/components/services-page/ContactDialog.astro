@@ -2,40 +2,41 @@
 import UiIcon from '@/components/icons/UiIcon.astro';
 ---
 
-<dialog id="contact-dialog" class="backdrop:bg-black/60 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto max-w-lg w-full open:animate-fade-in">
-    <div class="p-6 border bg-slate-800 rounded-xl border-slate-700 shadow-2xl">
-        <div class="flex items-center justify-between mb-6">
-            <h3 class="text-xl font-semibold text-white">Get in Touch</h3>
-            <button id="dialog-close" class="p-1 transition-colors rounded-lg text-slate-400 hover:text-white hover:bg-slate-700">
-                <UiIcon name="x-close" size={20} />
-            </button>
+<dialog id="contact-dialog" class="backdrop:bg-black/60 backdrop:backdrop-blur-sm bg-transparent p-0 m-auto max-w-lg w-[90%] sm:w-full open:animate-fade-in">
+    <div class="relative p-8 bg-base-900 rounded-2xl border border-base-700 shadow-2xl">
+        <button id="dialog-close" class="absolute top-4 right-4 p-2 transition-colors rounded-full text-base-400 hover:text-base-100 hover:bg-base-700/50">
+            <UiIcon name="x-close" size={20} />
+        </button>
+        <div class="mb-8 pr-10">
+            <h3 class="text-2xl font-bold text-base-100">Get in Touch</h3>
+            <p class="text-sm text-base-400 mt-1">I'll get back to you as soon as possible.</p>
         </div>
 
-        <form id="dialog-contact-form" class="space-y-4">
+        <form id="dialog-contact-form" class="space-y-5">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
-                    <label for="dialog-name" class="block mb-1 text-sm font-medium text-slate-300">Your Name</label>
-                    <input type="text" id="dialog-name" name="name" required class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="Your name" />
+                    <label for="dialog-name" class="block mb-2 text-sm font-medium text-base-200">Your Name</label>
+                    <input type="text" id="dialog-name" name="name" required class="w-full px-4 py-3 text-base-100 transition-all border rounded-xl border-base-700 bg-base-800 focus:outline-none focus:ring-2 focus:ring-accent-500/50 focus:border-accent-500 placeholder:text-base-500" placeholder="Your name" />
                 </div>
                 <div>
-                    <label for="dialog-email" class="block mb-1 text-sm font-medium text-slate-300">Email Address</label>
-                    <input type="email" id="dialog-email" name="email" required class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="you@company.com" />
+                    <label for="dialog-email" class="block mb-2 text-sm font-medium text-base-200">Email Address</label>
+                    <input type="email" id="dialog-email" name="email" required class="w-full px-4 py-3 text-base-100 transition-all border rounded-xl border-base-700 bg-base-800 focus:outline-none focus:ring-2 focus:ring-accent-500/50 focus:border-accent-500 placeholder:text-base-500" placeholder="you@company.com" />
                 </div>
             </div>
 
             <div>
-                <label for="dialog-subject" class="block mb-1 text-sm font-medium text-slate-300">Subject</label>
-                <input type="text" id="dialog-subject" name="subject" required class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="Project Inquiry" />
+                <label for="dialog-subject" class="block mb-2 text-sm font-medium text-base-200">Subject</label>
+                <input type="text" id="dialog-subject" name="subject" required class="w-full px-4 py-3 text-base-100 transition-all border rounded-xl border-base-700 bg-base-800 focus:outline-none focus:ring-2 focus:ring-accent-500/50 focus:border-accent-500 placeholder:text-base-500" placeholder="Project Inquiry" />
             </div>
 
             <div>
-                <label for="dialog-message" class="block mb-1 text-sm font-medium text-slate-300">Your Message</label>
-                <textarea id="dialog-message" name="message" required rows="4" class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="Hello, I'd like to discuss a project..."></textarea>
+                <label for="dialog-message" class="block mb-2 text-sm font-medium text-base-200">Your Message</label>
+                <textarea id="dialog-message" name="message" required rows="4" class="w-full px-4 py-3 text-base-100 transition-all border rounded-xl border-base-700 bg-base-800 focus:outline-none focus:ring-2 focus:ring-accent-500/50 focus:border-accent-500 placeholder:text-base-500 resize-none" placeholder="Hello, I'd like to discuss a project..."></textarea>
             </div>
 
-            <div id="dialog-submit-message" class="hidden p-3 rounded-lg"></div>
+            <div id="dialog-submit-message" class="hidden p-3 rounded-xl text-sm"></div>
 
-            <button type="submit" id="dialog-submit-btn" class="inline-flex items-center justify-center w-full gap-2 px-6 py-3 font-medium text-white transition-all duration-300 bg-accent-600 rounded-lg hover:bg-accent-700">
+            <button type="submit" id="dialog-submit-btn" class="inline-flex items-center justify-center w-full gap-2 px-6 py-3.5 font-medium text-white transition-all duration-300 bg-accent-600 rounded-xl hover:bg-accent-700 shadow-lg shadow-accent-600/20">
                 <span id="dialog-submit-default" class="inline-flex items-center gap-2"><UiIcon name="send" size={20} /> Send Message</span>
                 <span id="dialog-submit-loading" class="hidden inline-flex items-center gap-2"><UiIcon name="loading" size={20} class="animate-spin" /> Sending...</span>
             </button>
@@ -45,11 +46,11 @@ import UiIcon from '@/components/icons/UiIcon.astro';
 
 <style>
     @keyframes fade-in {
-        from { opacity: 0; transform: scale(0.95); }
-        to { opacity: 1; transform: scale(1); }
+        from { opacity: 0; transform: scale(0.95) translateY(10px); }
+        to { opacity: 1; transform: scale(1) translateY(0); }
     }
     dialog[open] {
-        animation: fade-in 0.2s ease-out;
+        animation: fade-in 0.25s ease-out;
     }
 </style>
 
@@ -62,10 +63,8 @@ import UiIcon from '@/components/icons/UiIcon.astro';
     const submitLoading = document.getElementById('dialog-submit-loading')!;
     const submitMessage = document.getElementById('dialog-submit-message')!;
     const subjectInput = document.getElementById('dialog-subject') as HTMLInputElement;
-
     const messageInput = document.getElementById('dialog-message') as HTMLTextAreaElement;
 
-    // Open dialog from service buttons
     document.querySelectorAll<HTMLButtonElement>('[data-open-dialog]').forEach(btn => {
         btn.addEventListener('click', () => {
             const service = btn.dataset.service || '';
@@ -78,7 +77,6 @@ import UiIcon from '@/components/icons/UiIcon.astro';
 
     closeBtn.addEventListener('click', () => dialog.close());
 
-    // Close on backdrop click
     dialog.addEventListener('click', (e) => {
         if (e.target === dialog) dialog.close();
     });
@@ -88,8 +86,7 @@ import UiIcon from '@/components/icons/UiIcon.astro';
         submitBtn.disabled = true;
         submitDefault.classList.add('hidden');
         submitLoading.classList.remove('hidden');
-        submitBtn.classList.add('bg-slate-600', 'cursor-not-allowed');
-        submitBtn.classList.remove('bg-accent-600', 'hover:bg-accent-700');
+        submitBtn.classList.add('opacity-60', 'cursor-not-allowed');
 
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
@@ -111,8 +108,7 @@ import UiIcon from '@/components/icons/UiIcon.astro';
             submitBtn.disabled = false;
             submitDefault.classList.remove('hidden');
             submitLoading.classList.add('hidden');
-            submitBtn.classList.remove('bg-slate-600', 'cursor-not-allowed');
-            submitBtn.classList.add('bg-accent-600', 'hover:bg-accent-700');
+            submitBtn.classList.remove('opacity-60', 'cursor-not-allowed');
 
             submitMessage.classList.remove('hidden');
             submitMessage.classList.add('bg-green-500/20', 'text-green-400');

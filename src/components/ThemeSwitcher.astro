@@ -1,0 +1,184 @@
+---
+import { allPalettes, currentTheme } from '@/config/theme';
+import type { ThemeName } from '@/config/theme';
+
+const themeLabels: Record<ThemeName, string> = {
+    midnight: 'Midnight',
+    forest: 'Forest',
+    cherry: 'Cherry',
+    ocean: 'Ocean',
+    sand: 'Sand',
+    ember: 'Ember',
+    lavender: 'Lavender',
+    arctic: 'Arctic',
+};
+
+function rgbToHex(rgb: string): string {
+    return '#' + rgb.split(' ').map(n => parseInt(n).toString(16).padStart(2, '0')).join('');
+}
+
+type PreviewColors = { base900: string; base700: string; accent500: string; accent400: string };
+const previews: Record<string, PreviewColors> = {};
+for (const [name, palette] of Object.entries(allPalettes)) {
+    previews[name] = {
+        base900: rgbToHex(palette.base['900']),
+        base700: rgbToHex(palette.base['700']),
+        accent500: rgbToHex(palette.accent['500']),
+        accent400: rgbToHex(palette.accent['400']),
+    };
+}
+
+const currentPreview = previews[currentTheme];
+const darkThemes: ThemeName[] = ['midnight', 'forest', 'ocean', 'ember'];
+const lightThemes: ThemeName[] = ['cherry', 'sand', 'lavender', 'arctic'];
+const themeNames = [...darkThemes, ...lightThemes];
+---
+
+<script id="theme-palettes" type="application/json" set:html={JSON.stringify(allPalettes)} />
+
+<div id="theme-switcher" class="fixed bottom-6 right-6 z-[60] flex items-center">
+    <div id="theme-bar" class="flex items-center bg-base-800/95 backdrop-blur-xl border border-base-700/50 shadow-2xl rounded-full overflow-hidden transition-all duration-300 ease-out" style="max-width: 2.75rem; padding: 0.25rem;">
+        <div id="theme-options" class="flex items-center gap-1.5 overflow-hidden transition-all duration-300 ease-out" style="max-width: 0; opacity: 0; padding-left: 0;">
+            {themeNames.map((name) => (
+                <button
+                    data-theme={name}
+                    class="theme-option relative flex-shrink-0 w-7 h-7 rounded-full overflow-hidden border-2 border-transparent hover:brightness-110 transition-all duration-200 cursor-pointer"
+                    aria-label={`Switch to ${themeLabels[name as ThemeName]} theme`}
+                    title={themeLabels[name as ThemeName]}
+                >
+                    <svg viewBox="0 0 28 28" class="w-full h-full block">
+                        <path d="M14 0 A14 14 0 0 1 28 14 L14 14 Z" fill={previews[name].accent400} />
+                        <path d="M28 14 A14 14 0 0 1 14 28 L14 14 Z" fill={previews[name].accent500} />
+                        <path d="M14 28 A14 14 0 0 1 0 14 L14 14 Z" fill={previews[name].base900} />
+                        <path d="M0 14 A14 14 0 0 1 14 0 L14 14 Z" fill={previews[name].base700} />
+                    </svg>
+                    <span class="theme-check absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-150">
+                        <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                            <path d="M3.5 8.5 L6.5 11.5 L12.5 4.5" />
+                        </svg>
+                    </span>
+                </button>
+            ))}
+        </div>
+        <button
+            id="theme-toggle"
+            class="flex-shrink-0 w-8 h-8 rounded-full overflow-hidden transition-all duration-200 cursor-pointer"
+            aria-label="Toggle theme switcher"
+        >
+            <svg id="toggle-svg" viewBox="0 0 32 32" class="w-full h-full block">
+                <path d="M16 0 A16 16 0 0 1 32 16 L16 16 Z" fill={currentPreview.accent400} />
+                <path d="M32 16 A16 16 0 0 1 16 32 L16 16 Z" fill={currentPreview.accent500} />
+                <path d="M16 32 A16 16 0 0 1 0 16 L16 16 Z" fill={currentPreview.base900} />
+                <path d="M0 16 A16 16 0 0 1 16 0 L16 16 Z" fill={currentPreview.base700} />
+            </svg>
+        </button>
+    </div>
+</div>
+
+<script>
+    const palettes = JSON.parse(document.getElementById('theme-palettes')!.textContent!);
+    const bar = document.getElementById('theme-bar')!;
+    const optionsContainer = document.getElementById('theme-options')!;
+    const toggle = document.getElementById('theme-toggle')!;
+    const options = document.querySelectorAll<HTMLButtonElement>('.theme-option');
+    let isOpen = false;
+
+    function rgbToHex(rgb: string): string {
+        return '#' + rgb.split(' ').map((n: string) => parseInt(n).toString(16).padStart(2, '0')).join('');
+    }
+
+    function buildStyleString(p: any): string {
+        const parts: string[] = [];
+        for (const [shade, val] of Object.entries(p.base)) {
+            parts.push(`--base-${shade}:${val}`);
+        }
+        for (const [shade, val] of Object.entries(p.accent)) {
+            parts.push(`--accent-${shade}:${val}`);
+        }
+        parts.push(`--accent-hex:${p.accentHex}`);
+        return parts.join(';');
+    }
+
+    function updateToggleColors(name: string) {
+        const p = palettes[name];
+        if (!p) return;
+        const svg = document.getElementById('toggle-svg')!;
+        const paths = svg.querySelectorAll('path');
+        paths[0].setAttribute('fill', rgbToHex(p.accent['400']));
+        paths[1].setAttribute('fill', rgbToHex(p.accent['500']));
+        paths[2].setAttribute('fill', rgbToHex(p.base['900']));
+        paths[3].setAttribute('fill', rgbToHex(p.base['700']));
+    }
+
+    function applyTheme(name: string) {
+        const p = palettes[name];
+        if (!p) return;
+        // Set the ENTIRE style attribute at once to guarantee all vars update
+        document.documentElement.setAttribute('style', buildStyleString(p));
+        localStorage.setItem('theme', name);
+        updateToggleColors(name);
+        updateActiveRing(name);
+    }
+
+    function updateActiveRing(name: string) {
+        options.forEach(btn => {
+            const check = btn.querySelector('.theme-check') as HTMLElement;
+            if (btn.dataset.theme === name) {
+                btn.classList.remove('border-transparent');
+                btn.classList.add('border-accent-400', 'ring-2', 'ring-accent-400/30');
+                if (check) check.style.opacity = '1';
+            } else {
+                btn.classList.add('border-transparent');
+                btn.classList.remove('border-accent-400', 'ring-2', 'ring-accent-400/30');
+                if (check) check.style.opacity = '0';
+            }
+        });
+    }
+
+    function openPanel() {
+        isOpen = true;
+        bar.style.maxWidth = '22rem';
+        optionsContainer.style.maxWidth = '22rem';
+        optionsContainer.style.opacity = '1';
+        optionsContainer.style.paddingLeft = '0.25rem';
+        optionsContainer.style.paddingRight = '0.5rem';
+    }
+
+    function closePanel() {
+        isOpen = false;
+        bar.style.maxWidth = '2.75rem';
+        optionsContainer.style.maxWidth = '0';
+        optionsContainer.style.opacity = '0';
+        optionsContainer.style.paddingLeft = '0';
+        optionsContainer.style.paddingRight = '0';
+    }
+
+    toggle.addEventListener('click', () => isOpen ? closePanel() : openPanel());
+
+    options.forEach(btn => {
+        btn.addEventListener('click', () => {
+            applyTheme(btn.dataset.theme!);
+        });
+    });
+
+    // Apply saved theme on load
+    const saved = localStorage.getItem('theme');
+    if (saved && palettes[saved]) {
+        applyTheme(saved);
+    } else {
+        const currentHex = getComputedStyle(document.documentElement).getPropertyValue('--accent-hex').trim();
+        for (const [name, p] of Object.entries(palettes) as [string, any][]) {
+            if (p.accentHex === currentHex) {
+                updateActiveRing(name);
+                break;
+            }
+        }
+    }
+
+    document.addEventListener('click', (e) => {
+        const switcher = document.getElementById('theme-switcher')!;
+        if (isOpen && !switcher.contains(e.target as Node)) {
+            closePanel();
+        }
+    });
+</script>

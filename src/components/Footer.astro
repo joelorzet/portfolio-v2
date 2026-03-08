@@ -19,34 +19,34 @@ function resolveHref(href: string): string {
 }
 ---
 
-<footer class="py-10 border-t bg-slate-900 border-slate-800">
+<footer class="py-10 border-t bg-base-900 border-base-800">
     <div class="container px-4 mx-auto sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div>
+            <div class="flex flex-col items-center md:items-start">
                 <div class="mb-4">
                     <Logo />
                 </div>
                 <SocialLinks />
             </div>
 
-            <div>
-                <h3 class="mb-4 text-lg font-semibold text-white">Quick Links</h3>
+            <div class="text-center md:text-left">
+                <h3 class="mb-4 text-lg font-semibold text-base-100">Quick Links</h3>
                 <ul class="space-y-2">
                     {quickLinks.map((item) => (
-                        <li><a href={resolveHref(`#${item.toLowerCase()}`)} class="transition-colors text-slate-400 hover:text-accent-400">{item}</a></li>
+                        <li><a href={resolveHref(`#${item.toLowerCase()}`)} class="transition-colors text-base-400 hover:text-accent-400">{item}</a></li>
                     ))}
-                    <li><a href="/services" class="transition-colors text-slate-400 hover:text-accent-400">Work with me</a></li>
+                    <li><a href="/services" class="transition-colors text-base-400 hover:text-accent-400">Work with me</a></li>
                 </ul>
             </div>
 
-            <div>
-                <h3 class="mb-4 text-lg font-semibold text-white">Services</h3>
+            <div class="text-center md:text-left">
+                <h3 class="mb-4 text-lg font-semibold text-base-100">Services</h3>
                 <FooterServices currentPath={currentPath} />
             </div>
         </div>
 
-        <div class="pt-6 mt-10 text-center border-t border-slate-800">
-            <p class="text-sm text-slate-500">&copy; {currentYear} {data.name}. All rights reserved.</p>
+        <div class="pt-6 mt-10 text-center border-t border-base-800">
+            <p class="text-sm text-base-500">&copy; {currentYear} {data.name}. All rights reserved.</p>
         </div>
     </div>
 </footer>

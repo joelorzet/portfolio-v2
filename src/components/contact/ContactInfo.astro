@@ -4,7 +4,7 @@ import UiIcon from '@/components/icons/UiIcon.astro';
 import SocialLinks from '@/components/icons/social/SocialLinks.astro';
 ---
 
-<div class="flex flex-col h-full p-6 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700">
+<div class="flex flex-col h-full p-6 border bg-base-800/80 backdrop-blur-sm rounded-xl border-base-700 shadow-lg shadow-base-900/10">
     <h3 class="mb-6 text-xl font-semibold">Contact Information</h3>
 
     <div class="space-y-4">
@@ -13,10 +13,10 @@ import SocialLinks from '@/components/icons/social/SocialLinks.astro';
                 <UiIcon name="mail" size={20} class="text-accent-400" />
             </div>
             <div>
-                <p class="text-sm text-slate-400">Email</p>
+                <p class="text-sm text-base-400">Email</p>
                 <a
                     href={`mailto:${data.email}`}
-                    class="transition-colors text-slate-200 hover:text-accent-400"
+                    class="transition-colors text-base-200 hover:text-accent-400"
                 >
                     {data.email}
                 </a>
@@ -28,13 +28,13 @@ import SocialLinks from '@/components/icons/social/SocialLinks.astro';
                 <UiIcon name="marker-pin" size={20} class="text-accent-400" />
             </div>
             <div>
-                <p class="text-sm text-slate-400">Location</p>
-                <p class="text-slate-200">{data.address}</p>
+                <p class="text-sm text-base-400">Location</p>
+                <p class="text-base-200">{data.address}</p>
             </div>
         </div>
     </div>
 
-    <div class="pt-6 mt-8 border-t border-slate-700">
+    <div class="pt-6 mt-8 border-t border-base-700">
         <h4 class="mb-4 text-lg font-medium">Connect with me</h4>
         <SocialLinks />
     </div>
@@ -44,6 +44,6 @@ import SocialLinks from '@/components/icons/social/SocialLinks.astro';
             <span class="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-green-400"></span>
             <span class="relative inline-flex w-3 h-3 rounded-full bg-green-500"></span>
         </span>
-        <span class="text-sm text-slate-300">Available for new projects</span>
+        <span class="text-sm text-base-300">Available for new projects</span>
     </div>
 </div>

@@ -3,6 +3,7 @@ import type { SEOProps } from '@/config/seo';
 import BaseLayout from './BaseLayout.astro';
 import Header from '@/components/header/Header.astro';
 import Footer from '@/components/Footer.astro';
+import ThemeSwitcher from '@/components/ThemeSwitcher.astro';
 
 interface Props {
     seo?: Partial<SEOProps>;
@@ -18,4 +19,5 @@ const currentPath = Astro.url.pathname;
         <slot />
     </main>
     <Footer currentPath={currentPath} />
+    <ThemeSwitcher />
 </BaseLayout>

@@ -19,37 +19,37 @@ function resolveHref(href: string): string {
 }
 ---
 
-<div id="header-wrapper" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8">
+<div id="header-wrapper" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 pt-2 sm:px-6 lg:px-8">
     <header id="header" class="transition-all duration-300 bg-transparent border border-transparent py-5 container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between">
             <a href="/" aria-label="Home">
                 <Logo />
             </a>
 
-            <nav class="hidden md:flex md:space-x-8">
+            <nav class="hidden lg:flex lg:items-center lg:space-x-2">
                 {navItems.map(({ key, label, href }) => (
-                    <a key={key} href={resolveHref(href)} class="transition-colors text-slate-300 hover:text-accent-400">{label}</a>
+                    <a key={key} href={resolveHref(href)} class="px-4 py-1.5 rounded-full transition-all text-base-300 hover:bg-accent-500/15 whitespace-nowrap">{label}</a>
                 ))}
             </nav>
 
-            <div class="items-center hidden md:flex">
+            <div class="items-center hidden lg:flex">
                 <SocialLinks />
             </div>
 
-            <button id="menu-toggle" class="md:hidden text-slate-200" aria-label="Toggle menu">
+            <button id="menu-toggle" class="lg:hidden text-base-200" aria-label="Toggle menu">
                 <span id="menu-icon"><UiIcon name="menu" size={24} /></span>
                 <span id="close-icon" class="hidden"><UiIcon name="x-close" size={24} /></span>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden py-4 md:hidden">
-            <nav class="flex flex-col space-y-4">
+        <div id="mobile-menu" class="hidden pt-6 pb-2 lg:hidden">
+            <nav class="flex flex-col gap-1">
                 {navItems.map(({ key, label, href }) => (
-                    <a key={key} href={resolveHref(href)} class="transition-colors text-slate-300 hover:text-accent-400">{label}</a>
+                    <a key={key} href={resolveHref(href)} class="mobile-nav-link px-4 py-2.5 rounded-full transition-all text-base-300 hover:bg-accent-500/15 font-medium">{label}</a>
                 ))}
             </nav>
-            <div class="pt-4 mt-4 border-t border-slate-700">
-                <SocialLinks />
+            <div class="flex items-center gap-3 px-4 pt-4 mt-3 border-t border-base-700">
+                <SocialLinks class="!space-x-2" />
             </div>
         </div>
     </header>
@@ -69,11 +69,23 @@ function resolveHref(href: string): string {
     function updateHeader() {
         if (isScrolled) {
             wrapper.style.paddingTop = '0.5rem';
-            header.className = 'transition-all duration-300 bg-slate-900/80 backdrop-blur-xl shadow-lg shadow-black/10 rounded-full border border-slate-700/50 mx-auto max-w-5xl py-2 px-6';
+            const rounding = isMenuOpen ? 'rounded-2xl' : 'rounded-full';
+            header.className = `transition-all duration-300 bg-base-900/80 backdrop-blur-xl shadow-lg shadow-black/10 ${rounding} border border-base-700/50 mx-auto max-w-5xl py-2 px-6`;
+        } else if (isMenuOpen) {
+            wrapper.style.paddingTop = '0.5rem';
+            header.className = 'transition-all duration-300 bg-base-900/95 backdrop-blur-xl border border-base-700/50 rounded-2xl py-5 container mx-auto px-4 sm:px-6 lg:px-8';
         } else {
-            wrapper.style.paddingTop = '0';
+            wrapper.style.paddingTop = '0.5rem';
             header.className = 'transition-all duration-300 bg-transparent border border-transparent py-5 container mx-auto px-4 sm:px-6 lg:px-8';
         }
+    }
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        mobileMenu.classList.toggle('hidden', !isMenuOpen);
+        menuIcon.classList.toggle('hidden', isMenuOpen);
+        closeIcon.classList.toggle('hidden', !isMenuOpen);
+        updateHeader();
     }
 
     window.addEventListener('scroll', () => {
@@ -84,10 +96,11 @@ function resolveHref(href: string): string {
         }
     });
 
-    menuToggle.addEventListener('click', () => {
-        isMenuOpen = !isMenuOpen;
-        mobileMenu.classList.toggle('hidden', !isMenuOpen);
-        menuIcon.classList.toggle('hidden', isMenuOpen);
-        closeIcon.classList.toggle('hidden', !isMenuOpen);
+    menuToggle.addEventListener('click', toggleMenu);
+
+    mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (isMenuOpen) toggleMenu();
+        });
     });
 </script>
