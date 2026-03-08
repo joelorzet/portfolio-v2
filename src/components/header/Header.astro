@@ -69,7 +69,7 @@ function resolveHref(href: string): string {
     function updateHeader() {
         if (isScrolled) {
             wrapper.style.paddingTop = '0.5rem';
-            const rounding = isMenuOpen ? 'rounded-2xl' : 'rounded-full';
+            const rounding = isMenuOpen ? 'rounded-2xl' : 'rounded-3xl';
             header.className = `transition-all duration-300 bg-base-900/80 backdrop-blur-xl shadow-lg shadow-black/10 ${rounding} border border-base-700/50 mx-auto max-w-5xl py-2 px-6`;
         } else if (isMenuOpen) {
             wrapper.style.paddingTop = '0.5rem';
