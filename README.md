@@ -1,97 +1,81 @@
-# Portfolio
+# Portfolio v2
 
-A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS.
+Personal portfolio website built with Astro, TypeScript, and Tailwind CSS. Deployed on Vercel at [joelorzet.dev](https://joelorzet.dev).
 
 ## Tech Stack
 
-- React 18
+- Astro (SSG) with React islands
 - TypeScript
-- Vite
 - Tailwind CSS
-- ESLint
-- Prettier
+- nanostores (cross-island state)
+- Vercel (@astrojs/vercel adapter)
+
+## Features
+
+- 8 switchable color themes (4 dark, 4 light) with localStorage persistence
+- Responsive design with mobile navigation
+- React islands for interactive components (Header, Hero, Projects, ContactForm, FooterServices)
+- SEO optimized with JSON-LD schemas and sitemap generation
+- Contact form with service pre-fill from the services page
+
+## Pages
+
+- `/` Main portfolio with all sections (Hero, About, Skills, Experience, Contact)
+- `/services` "Work With Me" page with service offerings, process, and maintenance plans
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js (Latest LTS version recommended)
-- npm or yarn
+- npm
 
 ### Installation
 
-1. Clone the repository:
-
 ```bash
-git clone https://github.com/joelorzet/portfolio.git
-cd portfolio
-```
-
-2. Install dependencies:
-
-```bash
+git clone https://github.com/joelorzet/portfolio-v2.git
+cd portfolio-v2
 npm install
 ```
 
 ### Development
 
-To start the development server:
-
 ```bash
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173`
+The application will be available at `http://localhost:4321`
 
 ### Building for Production
-
-To create a production build:
 
 ```bash
 npm run build
 ```
 
-To preview the production build:
+Preview the production build:
 
 ```bash
 npm run preview
 ```
 
-### Code Quality
-
-- Lint the code:
-
-```bash
-npm run lint
-```
-
-- Format the code:
-
-```bash
-npm run format
-```
-
 ## Project Structure
 
 ```
-portfolio/
-├── src/              # Source files
-├── public/           # Static assets
-├── index.html        # Entry HTML file
-├── vite.config.ts    # Vite configuration
-├── tsconfig.json     # TypeScript configuration
-├── tailwind.config.js # Tailwind CSS configuration
-└── package.json      # Project dependencies and scripts
+portfolio-v2/
+├── src/
+│   ├── assets/          # Images and custom SVG icons
+│   ├── components/      # Astro and React components
+│   ├── config/          # Site data, SEO config, theme palettes
+│   ├── layouts/         # BaseLayout (SEO head) and PageLayout (Header + Footer)
+│   ├── pages/           # index.astro, services.astro
+│   ├── stores/          # nanostores for cross-island state
+│   └── interfaces/      # TypeScript interfaces
+├── public/              # Static assets
+├── astro.config.mjs     # Astro configuration
+├── tailwind.config.js   # Tailwind CSS configuration
+└── package.json         # Dependencies and scripts
 ```
-
-## Features
-
-- Modern React with TypeScript
-- Responsive design with Tailwind CSS
-- Fast development with Vite
-- Code quality tools (ESLint, Prettier)
-- Component-based architecture
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
