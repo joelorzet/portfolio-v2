@@ -1,0 +1,63 @@
+---
+import { data } from '@/config/data';
+import UiIcon from '@/components/icons/UiIcon.astro';
+---
+
+<section id="about" class="py-20 bg-slate-800/50">
+    <div class="container px-4 mx-auto sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center gap-12 md:flex-row">
+            <!-- Image -->
+            <div class="flex justify-center w-full md:w-2/5">
+                <div class="relative">
+                    <div class="w-64 h-64 p-1 overflow-hidden border-4 border-indigo-500 rounded-full sm:w-80 sm:h-80">
+                        <div class="w-full h-full overflow-hidden rounded-full">
+                            <img src={data.profilePicture} alt={`${data.name} profile photo`} class="object-cover w-full h-full" loading="lazy" />
+                        </div>
+                    </div>
+                    <div class="absolute w-24 h-24 rounded-full -top-4 -right-4 bg-blue-500/20 blur-xl"></div>
+                    <div class="absolute w-24 h-24 rounded-full -bottom-4 -left-4 bg-indigo-500/20 blur-xl"></div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="w-full md:w-3/5">
+                <h2 class="mb-2 text-3xl font-bold">About Me</h2>
+                <div class="w-20 h-1 mb-6 bg-indigo-500"></div>
+
+                <p class="mb-6 text-slate-300">
+                    I'm a versatile software developer with extensive experience in both frontend and backend
+                    technologies. My journey started with traditional web applications using React and Angular
+                    on the frontend, paired with NestJS for robust backend solutions.
+                </p>
+
+                <p class="mb-6 text-slate-300">
+                    In recent years, I've shifted my focus to blockchain technologies, building decentralized
+                    applications with Stellar and Ethereum. Currently, I'm expanding my expertise by studying
+                    Aptos blockchain development.
+                </p>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-1 gap-6 my-8 sm:grid-cols-3">
+                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700">
+                        <UiIcon name="briefcase" size={40} class="mb-2 text-indigo-400" />
+                        <h3 class="text-lg font-semibold">Experience</h3>
+                        <p class="text-sm text-center text-slate-300">3+ Years</p>
+                    </div>
+                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700">
+                        <UiIcon name="award" size={40} class="mb-2 text-indigo-400" />
+                        <h3 class="text-lg font-semibold">Projects</h3>
+                        <p class="text-sm text-center text-slate-300">10+ Completed</p>
+                        <p class="text-sm text-center text-slate-300">4+ Successfully Mentored</p>
+                    </div>
+                </div>
+
+                <a
+                    href="#contact"
+                    class="inline-block px-6 py-3 font-medium text-white transition-colors duration-300 bg-indigo-600 rounded-lg hover:bg-indigo-700"
+                >
+                    Let's Work Together
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,52 @@
+---
+import { data } from '@/config/data';
+import Logo from '@/components/icons/Logo.astro';
+import SocialLinks from '@/components/icons/social/SocialLinks.astro';
+import FooterServices from '@/components/footer/FooterServices.astro';
+
+interface Props {
+    currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+const currentYear = new Date().getFullYear();
+
+const quickLinks = ['Home', 'About', 'Skills', 'Experience', 'Contact'];
+
+function resolveHref(href: string): string {
+    if (currentPath !== '/') return `/${href}`;
+    return href;
+}
+---
+
+<footer class="py-10 border-t bg-slate-900 border-slate-800">
+    <div class="container px-4 mx-auto sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div>
+                <div class="mb-4">
+                    <Logo />
+                </div>
+                <SocialLinks />
+            </div>
+
+            <div>
+                <h3 class="mb-4 text-lg font-semibold text-white">Quick Links</h3>
+                <ul class="space-y-2">
+                    {quickLinks.map((item) => (
+                        <li><a href={resolveHref(`#${item.toLowerCase()}`)} class="transition-colors text-slate-400 hover:text-indigo-400">{item}</a></li>
+                    ))}
+                    <li><a href="/services" class="transition-colors text-slate-400 hover:text-indigo-400">Work with me</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="mb-4 text-lg font-semibold text-white">Services</h3>
+                <FooterServices currentPath={currentPath} />
+            </div>
+        </div>
+
+        <div class="pt-6 mt-10 text-center border-t border-slate-800">
+            <p class="text-sm text-slate-500">&copy; {currentYear} {data.name}. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

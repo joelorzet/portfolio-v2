@@ -1,0 +1,93 @@
+---
+import { data } from '@/config/data';
+import UiIcon from '@/components/icons/UiIcon.astro';
+import Logo from '@/components/icons/Logo.astro';
+import SocialLinks from '@/components/icons/social/SocialLinks.astro';
+
+interface Props {
+    currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const navItems = Object.entries(data.navigation).map(([key, value]) => ({ key, ...value }));
+
+function resolveHref(href: string): string {
+    if (href.startsWith('/')) return href;
+    if (currentPath !== '/') return `/${href}`;
+    return href;
+}
+---
+
+<div id="header-wrapper" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8">
+    <header id="header" class="transition-all duration-300 bg-transparent border border-transparent py-5 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+            <a href="/" aria-label="Home">
+                <Logo />
+            </a>
+
+            <nav class="hidden md:flex md:space-x-8">
+                {navItems.map(({ key, label, href }) => (
+                    <a key={key} href={resolveHref(href)} class="transition-colors text-slate-300 hover:text-indigo-400">{label}</a>
+                ))}
+            </nav>
+
+            <div class="items-center hidden md:flex">
+                <SocialLinks />
+            </div>
+
+            <button id="menu-toggle" class="md:hidden text-slate-200" aria-label="Toggle menu">
+                <span id="menu-icon"><UiIcon name="menu" size={24} /></span>
+                <span id="close-icon" class="hidden"><UiIcon name="x-close" size={24} /></span>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden py-4 md:hidden">
+            <nav class="flex flex-col space-y-4">
+                {navItems.map(({ key, label, href }) => (
+                    <a key={key} href={resolveHref(href)} class="transition-colors text-slate-300 hover:text-indigo-400">{label}</a>
+                ))}
+            </nav>
+            <div class="pt-4 mt-4 border-t border-slate-700">
+                <SocialLinks />
+            </div>
+        </div>
+    </header>
+</div>
+
+<script>
+    const wrapper = document.getElementById('header-wrapper')!;
+    const header = document.getElementById('header')!;
+    const menuToggle = document.getElementById('menu-toggle')!;
+    const mobileMenu = document.getElementById('mobile-menu')!;
+    const menuIcon = document.getElementById('menu-icon')!;
+    const closeIcon = document.getElementById('close-icon')!;
+
+    let isScrolled = false;
+    let isMenuOpen = false;
+
+    function updateHeader() {
+        if (isScrolled) {
+            wrapper.style.paddingTop = '0.5rem';
+            header.className = 'transition-all duration-300 bg-slate-900/80 backdrop-blur-xl shadow-lg shadow-black/10 rounded-full border border-slate-700/50 mx-auto max-w-5xl py-2 px-6';
+        } else {
+            wrapper.style.paddingTop = '0';
+            header.className = 'transition-all duration-300 bg-transparent border border-transparent py-5 container mx-auto px-4 sm:px-6 lg:px-8';
+        }
+    }
+
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY > 50;
+        if (scrolled !== isScrolled) {
+            isScrolled = scrolled;
+            updateHeader();
+        }
+    });
+
+    menuToggle.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        mobileMenu.classList.toggle('hidden', !isMenuOpen);
+        menuIcon.classList.toggle('hidden', isMenuOpen);
+        closeIcon.classList.toggle('hidden', !isMenuOpen);
+    });
+</script>

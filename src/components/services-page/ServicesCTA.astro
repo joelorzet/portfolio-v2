@@ -1,0 +1,23 @@
+---
+import UiIcon from '@/components/icons/UiIcon.astro';
+---
+
+<section class="py-20 bg-slate-800/50">
+    <div class="container px-4 mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-3xl p-8 mx-auto text-center border sm:p-12 bg-slate-800/80 backdrop-blur-sm rounded-2xl border-slate-700">
+            <h2 class="mb-4 text-3xl font-bold sm:text-4xl">Ready to start?</h2>
+            <p class="mb-8 text-lg text-slate-300">
+                Let's talk about your project. I'm just a message away.
+            </p>
+            <button
+                data-open-dialog
+                data-service="Project"
+                data-message="Hi Joel, I'd like to start a conversation about a project. Could we schedule a time to discuss the details?"
+                class="inline-flex items-center gap-2 px-8 py-3 font-medium text-white transition-colors duration-300 bg-indigo-600 rounded-full cursor-pointer hover:bg-indigo-700"
+            >
+                <UiIcon name="message-chat" size={20} />
+                Let's Talk
+            </button>
+        </div>
+    </div>
+</section>

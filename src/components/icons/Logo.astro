@@ -1,0 +1,16 @@
+---
+interface Props {
+    size?: number;
+    showText?: boolean;
+}
+
+const { size = 32, showText = true } = Astro.props;
+---
+
+<div class="flex items-center">
+    <svg class="text-indigo-500" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+    </svg>
+    {showText && <span class="ml-2 text-xl font-bold">Dev<span class="text-indigo-500">Portfolio</span></span>}
+</div>

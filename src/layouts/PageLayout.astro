@@ -1,0 +1,21 @@
+---
+import type { SEOProps } from '@/config/seo';
+import BaseLayout from './BaseLayout.astro';
+import Header from '@/components/header/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+interface Props {
+    seo?: Partial<SEOProps>;
+}
+
+const { seo } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<BaseLayout seo={seo}>
+    <Header currentPath={currentPath} />
+    <main>
+        <slot />
+    </main>
+    <Footer currentPath={currentPath} />
+</BaseLayout>

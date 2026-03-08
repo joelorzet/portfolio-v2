@@ -1,0 +1,96 @@
+---
+import { data } from '@/config/data';
+import UiIcon from '@/components/icons/UiIcon.astro';
+
+const serviceIcons: Record<string, string> = {
+    frontend: 'monitor',
+    backend: 'server',
+    fullstack: 'layers-three',
+    blockchain: 'hexagon',
+    technicalConsulting: 'message-chat',
+    landingPages: 'globe',
+};
+
+const serviceDeliverables: Record<string, string[]> = {
+    frontend: ['Responsive web applications', 'Single-page apps (SPA)', 'Component libraries', 'Performance optimization'],
+    backend: ['REST & GraphQL APIs', 'Database design', 'Authentication & authorization', 'Server infrastructure'],
+    fullstack: ['End-to-end web apps', 'Full architecture design', 'API + frontend integration', 'Deployment pipelines'],
+    blockchain: ['dApp development', 'Wallet integration', 'Solidity / Rust (Stellar) contracts', 'Token standards'],
+    technicalConsulting: ['Architecture reviews', 'Tech stack evaluation', 'Code audits', 'Team mentoring'],
+    landingPages: ['Conversion-focused design', 'Fast load times', 'SEO optimized', 'Analytics integration'],
+};
+
+interface ServiceCard {
+    key: string;
+    label: string;
+    description: string;
+    callToAction: string;
+    icon: string;
+    deliverables: string[];
+    gridClass: string;
+}
+
+const cards: ServiceCard[] = [
+    { key: 'fullstack', gridClass: '' },
+    { key: 'frontend', gridClass: '' },
+    { key: 'backend', gridClass: '' },
+    { key: 'blockchain', gridClass: '' },
+    { key: 'technicalConsulting', gridClass: '' },
+    { key: 'landingPages', gridClass: '' },
+].map(c => ({
+    ...c,
+    label: data.services[c.key].label,
+    description: data.services[c.key].description,
+    callToAction: data.services[c.key].callToAction,
+    icon: serviceIcons[c.key],
+    deliverables: serviceDeliverables[c.key] || [],
+}));
+---
+
+<section class="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
+    <div class="container px-4 mx-auto sm:px-6 lg:px-8">
+        <div class="mb-16 text-center">
+            <h2 class="mb-2 text-3xl font-bold">Services Offered</h2>
+            <div class="w-20 h-1 mx-auto mb-6 bg-indigo-500"></div>
+            <p class="max-w-3xl mx-auto text-slate-300">
+                From concept to deployment, I offer a range of development services tailored to your needs.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {cards.map(({ key, label, description, callToAction, icon, deliverables, gridClass }) => (
+                <div class:list={[
+                    'flex flex-col p-6 transition-all duration-300 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700 hover:border-indigo-500/50',
+                    gridClass,
+                ]}>
+                    <div class="flex items-center mb-4">
+                        <div class="p-3 mr-4 rounded-lg bg-indigo-500/10">
+                            {icon && <UiIcon name={icon} size={24} class="text-indigo-400" />}
+                        </div>
+                        <h3 class="text-xl font-semibold">{label}</h3>
+                    </div>
+
+                    <p class="mb-4 text-sm text-slate-300">{description}</p>
+
+                    <ul class="mb-6 space-y-2 grow">
+                        {deliverables.map((item) => (
+                            <li class="flex items-start text-sm text-slate-400">
+                                <span class="mr-2 text-indigo-400">&#x2713;</span>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+
+                    <button
+                        data-open-dialog
+                        data-service={label}
+                        data-message={callToAction}
+                        class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-indigo-400 transition-colors border rounded-lg border-indigo-500/50 hover:bg-indigo-600 hover:text-white cursor-pointer"
+                    >
+                        Inquire &rarr;
+                    </button>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

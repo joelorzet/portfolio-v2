@@ -1,0 +1,20 @@
+---
+import { data } from '@/config/data';
+
+interface Props {
+    currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+---
+
+<ul class="space-y-2">
+    {Object.entries(data.services).map(([key, value]) => {
+        const href = currentPath === '/' ? `#contact` : `/#contact?service=${key}`;
+        return (
+            <li>
+                <a href={href} class="transition-colors text-slate-400 hover:text-indigo-400">{value.label}</a>
+            </li>
+        );
+    })}
+</ul>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@/config/http.client';
-import { IRequestConfig } from '@/interfaces/config/IRequest';
-import { IAPIService } from '@/interfaces/services/IAPIService';
+import type { IRequestConfig } from '@/interfaces/config/IRequest';
+import type { IAPIService } from '@/interfaces/services/IAPIService';
 
 export class APIService implements IAPIService {
     constructor(
@@ -19,4 +19,4 @@ export class APIService implements IAPIService {
 
 const httpClient = new HttpClient();
 
-export const apiService = new APIService(httpClient, import.meta.env.VITE_API_URL);
+export const apiService = new APIService(httpClient, import.meta.env.PUBLIC_API_URL);
