@@ -29,14 +29,14 @@ const expectations = [
     <div class="container px-4 mx-auto sm:px-6 lg:px-8">
         <div class="mb-16 text-center">
             <h2 class="mb-2 text-3xl font-bold">What to Expect</h2>
-            <div class="w-20 h-1 mx-auto mb-6 bg-indigo-500"></div>
+            <div class="w-20 h-1 mx-auto mb-6 bg-accent-500"></div>
         </div>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {expectations.map(({ iconName, title, description }) => (
-                <div class="p-6 text-center transition-all duration-300 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700 hover:border-indigo-500/50">
-                    <div class="inline-flex items-center justify-center w-14 h-14 mb-4 rounded-xl bg-indigo-500/10">
-                        <UiIcon name={iconName} size={28} class="text-indigo-400" />
+                <div class="p-6 text-center transition-all duration-300 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700 hover:border-accent-500/50">
+                    <div class="inline-flex items-center justify-center w-14 h-14 mb-4 rounded-xl bg-accent-500/10">
+                        <UiIcon name={iconName} size={28} class="text-accent-400" />
                     </div>
                     <h3 class="mb-2 text-lg font-semibold">{title}</h3>
                     <p class="text-sm text-slate-300">{description}</p>

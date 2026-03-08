@@ -1,6 +1,7 @@
 ---
 import type { SEOProps } from '@/config/seo';
 import { defaultSEO } from '@/config/seo';
+import { theme } from '@/config/theme';
 import '@/index.css';
 
 interface Props {
@@ -22,7 +23,7 @@ const ogImageUrl = ogImage?.startsWith('http') ? ogImage : new URL(ogImage || '/
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" style={`--accent-400:${theme['400']};--accent-500:${theme['500']};--accent-600:${theme['600']};--accent-700:${theme['700']};--accent-hex:${theme.hex}`}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

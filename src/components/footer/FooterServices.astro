@@ -6,15 +6,37 @@ interface Props {
 }
 
 const { currentPath = '/' } = Astro.props;
+const isIndex = currentPath === '/';
 ---
 
 <ul class="space-y-2">
-    {Object.entries(data.services).map(([key, value]) => {
-        const href = currentPath === '/' ? `#contact` : `/#contact?service=${key}`;
-        return (
-            <li>
-                <a href={href} class="transition-colors text-slate-400 hover:text-indigo-400">{value.label}</a>
-            </li>
-        );
-    })}
+    {Object.entries(data.services).map(([key, value]) => (
+        <li>
+            <a
+                href={isIndex ? '#contact' : `/?service=${key}#contact`}
+                data-service={isIndex ? key : undefined}
+                class="transition-colors text-slate-400 hover:text-accent-400"
+            >
+                {value.label}
+            </a>
+        </li>
+    ))}
 </ul>
+
+<script>
+    document.querySelectorAll<HTMLAnchorElement>('a[data-service]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const key = link.dataset.service!;
+            const servicesData = JSON.parse(document.getElementById('services-data')!.textContent!);
+            const service = servicesData[key];
+
+            if (service) {
+                (document.getElementById('subject') as HTMLInputElement).value = `${service.label} Inquiry`;
+                (document.getElementById('message') as HTMLTextAreaElement).value = service.callToAction;
+            }
+
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>

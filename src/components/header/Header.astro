@@ -28,7 +28,7 @@ function resolveHref(href: string): string {
 
             <nav class="hidden md:flex md:space-x-8">
                 {navItems.map(({ key, label, href }) => (
-                    <a key={key} href={resolveHref(href)} class="transition-colors text-slate-300 hover:text-indigo-400">{label}</a>
+                    <a key={key} href={resolveHref(href)} class="transition-colors text-slate-300 hover:text-accent-400">{label}</a>
                 ))}
             </nav>
 
@@ -45,7 +45,7 @@ function resolveHref(href: string): string {
         <div id="mobile-menu" class="hidden py-4 md:hidden">
             <nav class="flex flex-col space-y-4">
                 {navItems.map(({ key, label, href }) => (
-                    <a key={key} href={resolveHref(href)} class="transition-colors text-slate-300 hover:text-indigo-400">{label}</a>
+                    <a key={key} href={resolveHref(href)} class="transition-colors text-slate-300 hover:text-accent-400">{label}</a>
                 ))}
             </nav>
             <div class="pt-4 mt-4 border-t border-slate-700">
