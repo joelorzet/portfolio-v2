@@ -1,7 +1,7 @@
 ---
 import type { SEOProps } from '@/config/seo';
 import { defaultSEO } from '@/config/seo';
-import { theme } from '@/config/theme';
+import { theme, allPalettes } from '@/config/theme';
 import '@/index.css';
 
 interface Props {
@@ -23,7 +23,7 @@ const ogImageUrl = ogImage?.startsWith('http') ? ogImage : new URL(ogImage || '/
 ---
 
 <!doctype html>
-<html lang="en" style={`--accent-400:${theme['400']};--accent-500:${theme['500']};--accent-600:${theme['600']};--accent-700:${theme['700']};--accent-hex:${theme.hex}`}>
+<html lang="en" style={`--base-100:${theme.base['100']};--base-200:${theme.base['200']};--base-300:${theme.base['300']};--base-400:${theme.base['400']};--base-500:${theme.base['500']};--base-600:${theme.base['600']};--base-700:${theme.base['700']};--base-800:${theme.base['800']};--base-900:${theme.base['900']};--accent-400:${theme.accent['400']};--accent-500:${theme.accent['500']};--accent-600:${theme.accent['600']};--accent-700:${theme.accent['700']};--accent-hex:${theme.accentHex}`}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,8 +48,9 @@ const ogImageUrl = ogImage?.startsWith('http') ? ogImage : new URL(ogImage || '/
             <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
         )}
 
+        <script is:inline set:html={`(function(){var p=${JSON.stringify(allPalettes)};var t=localStorage.getItem('theme');if(t&&p[t]){var r=[];var b=p[t].base;for(var k in b)r.push('--base-'+k+':'+b[k]);var a=p[t].accent;for(var k in a)r.push('--accent-'+k+':'+a[k]);r.push('--accent-hex:'+p[t].accentHex);document.documentElement.setAttribute('style',r.join(';'))}})()`} />
     </head>
-    <body class="min-h-screen bg-slate-900 text-slate-100 antialiased">
+    <body class="min-h-screen bg-base-900 text-base-100 antialiased">
         <slot />
     </body>
 </html>

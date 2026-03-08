@@ -8,29 +8,29 @@ const servicesMap = Object.fromEntries(
 ---
 
 <script id="services-data" type="application/json" set:html={JSON.stringify(servicesMap)} />
-<div class="p-6 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700">
+<div class="p-6 border bg-base-800/80 backdrop-blur-sm rounded-xl border-base-700 shadow-lg shadow-base-900/10">
     <h3 class="mb-6 text-xl font-semibold">Send Me a Message</h3>
 
     <form id="contact-form" class="space-y-4">
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-                <label for="name" class="block mb-1 text-sm font-medium text-slate-300">Your Name</label>
-                <input type="text" id="name" name="name" required class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="Your name" />
+                <label for="name" class="block mb-1 text-sm font-medium text-base-300">Your Name</label>
+                <input type="text" id="name" name="name" required class="w-full px-4 py-2 text-base-100 transition-colors border rounded-lg border-base-600 bg-base-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="Your name" />
             </div>
             <div>
-                <label for="email" class="block mb-1 text-sm font-medium text-slate-300">Email Address</label>
-                <input type="email" id="email" name="email" required class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="you@company.com" />
+                <label for="email" class="block mb-1 text-sm font-medium text-base-300">Email Address</label>
+                <input type="email" id="email" name="email" required class="w-full px-4 py-2 text-base-100 transition-colors border rounded-lg border-base-600 bg-base-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="you@company.com" />
             </div>
         </div>
 
         <div>
-            <label for="subject" class="block mb-1 text-sm font-medium text-slate-300">Subject</label>
-            <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="Project Inquiry" value="Project Inquiry" />
+            <label for="subject" class="block mb-1 text-sm font-medium text-base-300">Subject</label>
+            <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 text-base-100 transition-colors border rounded-lg border-base-600 bg-base-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="Project Inquiry" value="Project Inquiry" />
         </div>
 
         <div>
-            <label for="message" class="block mb-1 text-sm font-medium text-slate-300">Your Message</label>
-            <textarea id="message" name="message" required rows="5" class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="Hello, I'd like to discuss a project..."></textarea>
+            <label for="message" class="block mb-1 text-sm font-medium text-base-300">Your Message</label>
+            <textarea id="message" name="message" required rows="5" class="w-full px-4 py-2 text-base-100 transition-colors border rounded-lg border-base-600 bg-base-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="Hello, I'd like to discuss a project..."></textarea>
         </div>
 
         <div id="submit-message" class="hidden p-3 rounded-lg"></div>
@@ -66,7 +66,7 @@ const servicesMap = Object.fromEntries(
         submitBtn.disabled = true;
         submitDefault.classList.add('hidden');
         submitLoading.classList.remove('hidden');
-        submitBtn.classList.add('bg-slate-600', 'cursor-not-allowed');
+        submitBtn.classList.add('bg-base-600', 'cursor-not-allowed');
         submitBtn.classList.remove('bg-accent-600', 'hover:bg-accent-700');
 
         const formData = new FormData(form);
@@ -89,7 +89,7 @@ const servicesMap = Object.fromEntries(
             submitBtn.disabled = false;
             submitDefault.classList.remove('hidden');
             submitLoading.classList.add('hidden');
-            submitBtn.classList.remove('bg-slate-600', 'cursor-not-allowed');
+            submitBtn.classList.remove('bg-base-600', 'cursor-not-allowed');
             submitBtn.classList.add('bg-accent-600', 'hover:bg-accent-700');
 
             submitMessage.classList.remove('hidden');

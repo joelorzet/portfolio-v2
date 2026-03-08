@@ -23,12 +23,12 @@ import JestIcon from '@/components/icons/tech/JestIcon.astro';
 const iconSize = 32;
 ---
 
-<section id="skills" class="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
+<section id="skills" class="py-20 bg-gradient-to-b from-base-900 to-base-800">
     <div class="container px-4 mx-auto sm:px-6 lg:px-8">
         <div class="mb-16 text-center">
             <h2 class="mb-2 text-3xl font-bold">My Skills</h2>
             <div class="w-20 h-1 mx-auto mb-6 bg-accent-500"></div>
-            <p class="max-w-3xl mx-auto text-slate-300">
+            <p class="max-w-3xl mx-auto text-base-300">
                 I've worked with a wide range of technologies throughout my career, from frontend frameworks to
                 backend solutions and blockchain development.
             </p>
@@ -36,73 +36,73 @@ const iconSize = 32;
 
         <div class="grid justify-center grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <!-- Frontend -->
-            <div class="p-6 transition-all duration-300 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700 hover:border-accent-500/50 lg:col-span-2">
+            <div class="p-6 transition-all duration-300 border bg-base-800/80 backdrop-blur-sm rounded-xl border-base-700 shadow-lg shadow-base-900/10 hover:border-accent-500/50 hover:shadow-xl hover:shadow-accent-500/10 lg:col-span-2">
                 <div class="flex items-center mb-6">
-                    <div class="p-3 mr-4 rounded-lg bg-slate-700">
+                    <div class="p-3 mr-4 rounded-lg bg-base-700">
                         <UiIcon name="monitor" size={24} class="text-accent-400" />
                     </div>
                     <h3 class="text-xl font-semibold">Frontend</h3>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                             <ReactIcon size={iconSize} />
                         </div>
-                        <span class="text-sm text-slate-300">React</span>
+                        <span class="text-sm text-base-300">React</span>
                     </div>
-                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                             <AngularIcon size={iconSize} />
                         </div>
-                        <span class="text-sm text-slate-300">Angular</span>
+                        <span class="text-sm text-base-300">Angular</span>
                     </div>
-                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                             <TailwindIcon size={iconSize} />
                         </div>
-                        <span class="text-sm text-slate-300">Tailwind CSS</span>
+                        <span class="text-sm text-base-300">Tailwind CSS</span>
                     </div>
-                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                             <TypeScriptIcon size={iconSize} />
                         </div>
-                        <span class="text-sm text-slate-300">TypeScript</span>
+                        <span class="text-sm text-base-300">TypeScript</span>
                     </div>
                 </div>
             </div>
 
             <!-- Backend -->
-            <div class="p-6 transition-all duration-300 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700 hover:border-accent-500/50 lg:col-span-2">
+            <div class="p-6 transition-all duration-300 border bg-base-800/80 backdrop-blur-sm rounded-xl border-base-700 shadow-lg shadow-base-900/10 hover:border-accent-500/50 hover:shadow-xl hover:shadow-accent-500/10 lg:col-span-2">
                 <div class="flex items-center mb-6">
-                    <div class="p-3 mr-4 rounded-lg bg-slate-700">
+                    <div class="p-3 mr-4 rounded-lg bg-base-700">
                         <UiIcon name="server" size={24} class="text-blue-400" />
                     </div>
                     <h3 class="text-xl font-semibold">Backend</h3>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                             <NestJSIcon size={iconSize} />
                         </div>
-                        <span class="text-sm text-slate-300">NestJS</span>
+                        <span class="text-sm text-base-300">NestJS</span>
                     </div>
-                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                             <UiIcon name="database" size={iconSize} />
                         </div>
-                        <span class="text-sm text-slate-300">PostgreSQL</span>
+                        <span class="text-sm text-base-300">PostgreSQL</span>
                     </div>
-                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                             <NodeJSIcon size={iconSize} />
                         </div>
-                        <span class="text-sm text-slate-300">NodeJs</span>
+                        <span class="text-sm text-base-300">NodeJs</span>
                     </div>
-                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                    <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                        <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                             <ORMIcon size={iconSize} />
                         </div>
-                        <span class="text-sm text-slate-300">TypeORM</span>
+                        <span class="text-sm text-base-300">TypeORM</span>
                     </div>
                 </div>
             </div>
@@ -110,103 +110,103 @@ const iconSize = 32;
             <!-- Bottom row: 3 cards spanning full width -->
             <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:col-span-4">
                 <!-- Blockchain -->
-                <div class="p-6 transition-all duration-300 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700 hover:border-accent-500/50">
+                <div class="p-6 transition-all duration-300 border bg-base-800/80 backdrop-blur-sm rounded-xl border-base-700 shadow-lg shadow-base-900/10 hover:border-accent-500/50 hover:shadow-xl hover:shadow-accent-500/10">
                     <div class="flex items-center mb-6">
-                        <div class="p-3 mr-4 rounded-lg bg-slate-700">
+                        <div class="p-3 mr-4 rounded-lg bg-base-700">
                             <UiIcon name="hexagon" size={24} class="text-purple-400" />
                         </div>
                         <h3 class="text-xl font-semibold">Blockchain</h3>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                                 <EthereumIcon size={iconSize} />
                             </div>
-                            <span class="text-sm text-slate-300">Ethereum</span>
+                            <span class="text-sm text-base-300">Ethereum</span>
                         </div>
-                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                                 <StellarIcon size={iconSize} />
                             </div>
-                            <span class="text-sm text-slate-300">Stellar</span>
+                            <span class="text-sm text-base-300">Stellar</span>
                         </div>
-                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                                 <AptosIcon size={iconSize} />
                             </div>
-                            <span class="text-sm text-slate-300">Aptos</span>
+                            <span class="text-sm text-base-300">Aptos</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Infrastructure -->
-                <div class="p-6 transition-all duration-300 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700 hover:border-accent-500/50">
+                <div class="p-6 transition-all duration-300 border bg-base-800/80 backdrop-blur-sm rounded-xl border-base-700 shadow-lg shadow-base-900/10 hover:border-accent-500/50 hover:shadow-xl hover:shadow-accent-500/10">
                     <div class="flex items-center mb-6">
-                        <div class="p-3 mr-4 rounded-lg bg-slate-700">
+                        <div class="p-3 mr-4 rounded-lg bg-base-700">
                             <InfrastructureIcon size={24} class="text-orange-400" />
                         </div>
                         <h3 class="text-xl font-semibold">Infrastructure</h3>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                                 <AwsIcon size={iconSize} />
                             </div>
-                            <span class="text-sm text-slate-300">AWS</span>
+                            <span class="text-sm text-base-300">AWS</span>
                         </div>
-                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                                 <OracleIcon size={iconSize} />
                             </div>
-                            <span class="text-sm text-slate-300">Oracle</span>
+                            <span class="text-sm text-base-300">Oracle</span>
                         </div>
-                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                                 <DockerIcon size={iconSize} />
                             </div>
-                            <span class="text-sm text-slate-300">Docker</span>
+                            <span class="text-sm text-base-300">Docker</span>
                         </div>
-                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                                 <KubernetesIcon size={iconSize} />
                             </div>
-                            <span class="text-sm text-slate-300">Kubernetes</span>
+                            <span class="text-sm text-base-300">Kubernetes</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Other -->
-                <div class="p-6 transition-all duration-300 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700 hover:border-accent-500/50">
+                <div class="p-6 transition-all duration-300 border bg-base-800/80 backdrop-blur-sm rounded-xl border-base-700 shadow-lg shadow-base-900/10 hover:border-accent-500/50 hover:shadow-xl hover:shadow-accent-500/10">
                     <div class="flex items-center mb-6">
-                        <div class="p-3 mr-4 rounded-lg bg-slate-700">
+                        <div class="p-3 mr-4 rounded-lg bg-base-700">
                             <UiIcon name="globe" size={24} class="text-green-400" />
                         </div>
                         <h3 class="text-xl font-semibold">Other</h3>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                                 <GitHubIcon size={iconSize} />
                             </div>
-                            <span class="text-sm text-slate-300">Git/GitHub</span>
+                            <span class="text-sm text-base-300">Git/GitHub</span>
                         </div>
-                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                                 <CICDIcon size={iconSize} />
                             </div>
-                            <span class="text-sm text-slate-300">CI/CD</span>
+                            <span class="text-sm text-base-300">CI/CD</span>
                         </div>
-                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                                 <CypressIcon size={iconSize} />
                             </div>
-                            <span class="text-sm text-slate-300">E2E Testing</span>
+                            <span class="text-sm text-base-300">E2E Testing</span>
                         </div>
-                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-slate-700/50 hover:bg-slate-700 group">
-                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-slate-800 group-hover:bg-accent-500/10 hover:scale-110">
+                        <div class="flex flex-col items-center p-4 transition-colors rounded-lg bg-base-700/50 hover:bg-base-700 group">
+                            <div class="w-12 h-12 p-2 mb-2 transition duration-300 rounded-lg bg-base-800 group-hover:bg-accent-500/10 hover:scale-110">
                                 <JestIcon size={iconSize} />
                             </div>
-                            <span class="text-sm text-slate-300">Jest</span>
+                            <span class="text-sm text-base-300">Jest</span>
                         </div>
                     </div>
                 </div>
