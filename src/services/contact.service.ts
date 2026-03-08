@@ -1,7 +1,7 @@
-import { IContactMessage } from '@/interfaces/models/contact';
+import type { IContactMessage } from '@/interfaces/models/contact';
 import { apiService } from './api.service';
-import { IContactService } from '@/interfaces/services/IContactService';
-import { IAPIService } from '@/interfaces/services/IAPIService';
+import type { IContactService } from '@/interfaces/services/IContactService';
+import type { IAPIService } from '@/interfaces/services/IAPIService';
 import { HttpError } from '@/common/errors/request/http';
 import { ContactBadRequestError } from '@/common/errors/services/contact.error';
 

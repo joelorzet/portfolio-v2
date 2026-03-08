@@ -1,0 +1,22 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { servicesSEO } from '@/config/seo';
+
+import ServicesHero from '@/components/services-page/ServicesHero.astro';
+import HowIWork from '@/components/services-page/HowIWork.astro';
+import ServicesOffered from '@/components/services-page/ServicesOffered.astro';
+import ClientExpectations from '@/components/services-page/ClientExpectations.astro';
+import MaintenancePlans from '@/components/services-page/MaintenancePlans.astro';
+import ServicesCTA from '@/components/services-page/ServicesCTA.astro';
+import ContactDialog from '@/components/services-page/ContactDialog.astro';
+---
+
+<PageLayout seo={servicesSEO}>
+    <ServicesHero />
+    <HowIWork />
+    <ServicesOffered />
+    <ClientExpectations />
+    <MaintenancePlans />
+    <ServicesCTA />
+    <ContactDialog />
+</PageLayout>

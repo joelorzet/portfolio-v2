@@ -1,0 +1,90 @@
+---
+import UiIcon from '@/components/icons/UiIcon.astro';
+
+const plans = [
+    {
+        iconName: 'shield-tick',
+        name: 'Basic',
+        highlight: false,
+        features: [
+            'Bug fixes & security patches',
+            'Minor content updates',
+            'Dependency maintenance',
+            'Email support',
+        ],
+    },
+    {
+        iconName: 'star',
+        name: 'Standard',
+        highlight: true,
+        features: [
+            'Everything in Basic',
+            'Feature additions & enhancements',
+            'Performance monitoring',
+            'Priority support & faster response',
+        ],
+    },
+    {
+        iconName: 'zap',
+        name: 'Custom',
+        highlight: false,
+        features: [
+            'Tailored to your specific needs',
+            'Dedicated availability windows',
+            'Proactive improvements',
+            'Strategic technical guidance',
+        ],
+    },
+];
+---
+
+<section class="py-20 bg-gradient-to-b from-slate-900 to-slate-800">
+    <div class="container px-4 mx-auto sm:px-6 lg:px-8">
+        <div class="mb-16 text-center">
+            <h2 class="mb-2 text-3xl font-bold">Maintenance Plans</h2>
+            <div class="w-20 h-1 mx-auto mb-6 bg-indigo-500"></div>
+            <p class="max-w-3xl mx-auto text-slate-300">
+                Keep your project running smoothly with ongoing support tailored to your needs.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {plans.map(({ iconName, name, highlight, features }) => (
+                <div
+                    class={`p-8 transition-all duration-300 border rounded-xl backdrop-blur-sm ${
+                        highlight
+                            ? 'bg-indigo-600/10 border-indigo-500 ring-1 ring-indigo-500/30'
+                            : 'bg-slate-800/80 border-slate-700 hover:border-indigo-500/50'
+                    }`}
+                >
+                    <div class="flex items-center mb-6">
+                        <div class={`p-3 mr-4 rounded-lg ${highlight ? 'bg-indigo-500/20' : 'bg-slate-700'}`}>
+                            <UiIcon name={iconName} size={24} class="text-indigo-400" />
+                        </div>
+                        <h3 class="text-xl font-bold">{name}</h3>
+                    </div>
+
+                    <ul class="space-y-3">
+                        {features.map((feature) => (
+                            <li class="flex items-start text-sm text-slate-300">
+                                <span class="mr-2 text-indigo-400">&#x2713;</span>
+                                {feature}
+                            </li>
+                        ))}
+                    </ul>
+
+                    <a
+                        href="/#contact"
+                        class={`block mt-8 text-center px-6 py-3 text-sm font-medium rounded-lg transition-colors ${
+                            highlight
+                                ? 'bg-indigo-600 text-white hover:bg-indigo-700'
+                                : 'border border-slate-600 text-slate-300 hover:border-indigo-500 hover:text-indigo-400'
+                        }`}
+                    >
+                        Get in Touch
+                    </a>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

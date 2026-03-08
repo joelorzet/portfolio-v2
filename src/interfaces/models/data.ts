@@ -1,5 +1,3 @@
-import { IProject } from './project';
-
 export interface ISocial {
     linkedin: string;
     github: string;
@@ -15,9 +13,9 @@ export interface INavigation {
     home: INavigationItem;
     about: INavigationItem;
     skills: INavigationItem;
-    projects: INavigationItem;
     experience: INavigationItem;
     contact: INavigationItem;
+    services: INavigationItem;
 }
 
 export interface IService {
@@ -31,8 +29,17 @@ export interface IServiceGroup {
     backend: IService;
     fullstack: IService;
     blockchain: IService;
-    smartcontract: IService;
     technicalConsulting: IService;
+    landingPages: IService;
+}
+
+export interface ExperienceItem {
+    id: number;
+    title: string;
+    company: string;
+    period: string;
+    description: string;
+    technologies: string[];
 }
 
 export interface IData {
@@ -42,6 +49,6 @@ export interface IData {
     address: string;
     social: ISocial;
     navigation: INavigation;
-    projects: IProject[];
     services: IServiceGroup;
+    experiences: ExperienceItem[];
 }

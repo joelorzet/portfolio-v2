@@ -1,4 +1,4 @@
-import { IData } from '@/interfaces/models/data';
+import type { IData } from '@/interfaces/models/data';
 
 export const data: IData = {
     name: 'Joel Orzet',
@@ -11,146 +11,108 @@ export const data: IData = {
         twitter: 'https://x.com/joelorzet',
     },
     navigation: {
-        home: {
-            label: 'Home',
-            href: '#home',
-        },
-        about: {
-            label: 'About',
-            href: '#about',
-        },
-        skills: {
-            label: 'Skills',
-            href: '#skills',
-        },
-        projects: {
-            label: 'Projects',
-            href: '#projects',
-        },
-        experience: {
-            label: 'Experience',
-            href: '#experience',
-        },
-        contact: {
-            label: 'Contact',
-            href: '#contact',
-        },
+        home: { label: 'Home', href: '#home' },
+        about: { label: 'About', href: '#about' },
+        skills: { label: 'Skills', href: '#skills' },
+        experience: { label: 'Experience', href: '#experience' },
+        contact: { label: 'Contact', href: '#contact' },
+        services: { label: 'Work with me', href: '/services' },
     },
-    projects: [
-        {
-            id: 1,
-            title: 'Crypto Portfolio Tracker',
-            description:
-                'A full-stack application for tracking cryptocurrency investments with real-time price updates and performance analytics.',
-            image: 'https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
-            category: 'frontend',
-            links: {
-                demo: 'https://example.com',
-                github: 'https://github.com',
-            },
-        },
-        {
-            id: 2,
-            title: 'NFT Marketplace',
-            description:
-                'A decentralized marketplace for NFTs built on the Ethereum blockchain with MetaMask integration.',
-            image: 'https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            technologies: ['React', 'Solidity', 'Web3.js', 'IPFS'],
-            category: 'blockchain',
-            links: {
-                demo: 'https://example.com',
-                github: 'https://github.com',
-            },
-        },
-        {
-            id: 3,
-            title: 'E-commerce API',
-            description:
-                'A robust backend API for e-commerce platforms with authentication, payment processing, and order management.',
-            image: 'https://images.pexels.com/photos/5935794/pexels-photo-5935794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            technologies: ['NestJS', 'PostgreSQL', 'TypeORM', 'JWT'],
-            category: 'backend',
-            links: {
-                github: 'https://github.com',
-            },
-        },
-        {
-            id: 4,
-            title: 'Stellar Payment Gateway',
-            description:
-                'A payment gateway built on the Stellar network for cross-border transactions with minimal fees.',
-            image: 'https://images.pexels.com/photos/6771607/pexels-photo-6771607.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            technologies: ['Node.js', 'Stellar SDK', 'Express', 'MongoDB'],
-            category: 'blockchain',
-            links: {
-                demo: 'https://example.com',
-                github: 'https://github.com',
-            },
-        },
-        {
-            id: 5,
-            title: 'Admin Dashboard',
-            description:
-                'A feature-rich admin dashboard for managing users, content, and analytics with dark mode support.',
-            image: 'https://images.pexels.com/photos/4383298/pexels-photo-4383298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            technologies: ['Angular', 'TypeScript', 'Chart.js', 'NgRx'],
-            category: 'frontend',
-            links: {
-                demo: 'https://example.com',
-                github: 'https://github.com',
-            },
-        },
-        {
-            id: 6,
-            title: 'Microservices Architecture',
-            description:
-                'A scalable microservices architecture for a large-scale application with service discovery and API gateway.',
-            image: 'https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            technologies: ['NestJS', 'Docker', 'Kubernetes', 'RabbitMQ'],
-            category: 'backend',
-            links: {
-                github: 'https://github.com',
-            },
-        },
-    ],
     services: {
         frontend: {
             label: 'Frontend Development',
             description: 'Building responsive and user-friendly web applications using modern technologies.',
             callToAction:
-                "Hi, I'm Paul, and I have a project that I'd like to discuss with you. I am looking for a front-end developer to assist me with it.",
+                "Hi Joel, I have a project I'd like to discuss with you. I'm looking for a frontend developer to build a responsive and modern web application.",
         },
         backend: {
             label: 'Backend Development',
             description: 'Building robust and scalable server-side applications using modern technologies.',
             callToAction:
-                "Hi, I'm Paul, and I have a project that I'd like to discuss with you. I'm developing a web solution and I already have the front end. I am looking for a back-end developer to help me with my project.",
+                "Hi Joel, I have a project I'd like to discuss with you. I already have a frontend and I'm looking for a backend developer to help build the server-side solution.",
         },
         fullstack: {
             label: 'FullStack Solutions',
             description: 'Building fullstack applications using modern technologies.',
             callToAction:
-                "Hi, I'm Paul, and I have a project that I'd like to discuss with you. I'm developing a web solution for my business and I need a developer to assist me.",
+                "Hi Joel, I have a project I'd like to discuss with you. I'm looking for a fullstack developer to build my web application from end to end.",
         },
         blockchain: {
-            label: 'Blockchain Development',
-            description: 'Building decentralized applications using blockchain technologies.',
+            label: 'Blockchain & Smart Contracts',
+            description:
+                'Building decentralized applications and smart contracts on Ethereum, Stellar, and other chains.',
             callToAction:
-                "Hi, I'm Paul, and I have a project that I'd like to discuss with you. I am looking for a developer to assist me with it. I'm building a blockchain project.",
-        },
-        smartcontract: {
-            label: 'Smart Contract Development',
-            description: 'Building smart contracts using modern technologies.',
-            callToAction:
-                "Hi, I'm Paul, and I have a project that I'd like to discuss with you. I am looking for a developer to assist me with it. I'm building a blockchain project and I need a smart contract.",
+                "Hi Joel, I have a project I'd like to discuss with you. I'm building a blockchain project and need a developer with Web3 and smart contract experience.",
         },
         technicalConsulting: {
             label: 'Technical Consulting',
             description:
                 'Providing technical consulting services to help businesses improve their technical capabilities.',
             callToAction:
-                "Hi, I'm Paul, and I have a project that I'd like to discuss with you. I am looking for a technical consultant to assist me.",
+                "Hi Joel, I'd like to schedule a consultation. I'm looking for technical guidance on my project's architecture and technology choices.",
+        },
+        landingPages: {
+            label: 'Landing Pages',
+            description:
+                'High-converting, performant landing pages designed to showcase your product or service effectively.',
+            callToAction:
+                "Hi Joel, I need a landing page for my product/service. I'm looking for a fast, modern, and conversion-focused design.",
         },
     },
+    experiences: [
+        {
+            id: 1,
+            title: 'Backend Developer',
+            company: 'TechOps Services',
+            period: 'Jan 2026 – Present',
+            description:
+                'Build and maintain full-stack Web3 applications on Ethereum and other blockchains. Design responsive interfaces for web and mobile, create wireframes and prototypes.',
+            technologies: ['Ethereum', 'Web3', 'React', 'TypeScript', 'UI/UX'],
+        },
+        {
+            id: 2,
+            title: 'Blockchain Mentor',
+            company: 'Aptos Foundation',
+            period: 'Jul 2025 – Feb 2026',
+            description:
+                'Mentored startup teams at early and advanced stages, validated ideas through technical guidance. Reviewed technical documentation, assessed feasibility, and collaborated with other mentors.',
+            technologies: ['Aptos', 'Move', 'Blockchain', 'Mentoring'],
+        },
+        {
+            id: 3,
+            title: 'Delivery Lead',
+            company: 'Bigger',
+            period: 'Dec 2024 – Dec 2025',
+            description:
+                'Translated business requirements into technical specs, coordinated cross-team priorities. Participated in architectural decisions and contributed to blockchain initiatives.',
+            technologies: ['Stellar', 'Ethereum', 'NestJS', 'Agile', 'Delivery'],
+        },
+        {
+            id: 4,
+            title: 'Blockchain Mentor',
+            company: 'Stellar Development Foundation',
+            period: 'Oct 2024 – Jul 2025',
+            description:
+                'Mentored 60+ projects during Stellar Kickstart Week (578+ applicants globally). Advised on Stellar and Soroban tools, contributed to 4.8/5 satisfaction score.',
+            technologies: ['Stellar', 'Soroban', 'Blockchain', 'Mentoring'],
+        },
+        {
+            id: 5,
+            title: 'Software Developer Semi Senior',
+            company: 'Bigger',
+            period: 'Jun 2023 – Dec 2024',
+            description:
+                'Designed scalable backend services with NestJS and TypeORM, led E2E testing with Cypress, and integrated external APIs. Contributed to blockchain-based solutions using Stellar and Ethereum smart contracts.',
+            technologies: ['NestJS', 'TypeORM', 'Cypress', 'Stellar', 'Ethereum', 'Docker'],
+        },
+        {
+            id: 6,
+            title: 'Software Developer Junior',
+            company: 'Bigger',
+            period: 'Dec 2022 – Jun 2023',
+            description:
+                'Developed and maintained full-stack features using Angular and NestJS. Participated in agile ceremonies, enhanced code stability, and collaborated in code reviews.',
+            technologies: ['Angular', 'NestJS', 'Git', 'Jest', 'Agile'],
+        },
+    ],
 };

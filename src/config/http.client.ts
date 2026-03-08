@@ -1,5 +1,5 @@
 import { HttpError } from '@/common/errors/request/http';
-import { IRequestConfig } from '@/interfaces/config/IRequest';
+import type { IRequestConfig } from '@/interfaces/config/IRequest';
 
 export class HttpClient {
     async request<T>(url: string, config: IRequestConfig): Promise<T> {

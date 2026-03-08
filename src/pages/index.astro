@@ -1,0 +1,17 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import Hero from '@/components/hero/Hero.astro';
+import About from '@/components/About.astro';
+import Skills from '@/components/Skills.astro';
+import Experience from '@/components/experience/Experience.astro';
+import Contact from '@/components/contact/Contact.astro';
+import { personJsonLd } from '@/config/seo';
+---
+
+<PageLayout seo={{ jsonLd: personJsonLd }}>
+    <Hero />
+    <About />
+    <Skills />
+    <Experience />
+    <Contact />
+</PageLayout>

@@ -1,0 +1,88 @@
+---
+import { data } from '@/config/data';
+import UiIcon from '@/components/icons/UiIcon.astro';
+---
+
+<section id="home" class="relative flex flex-col justify-center min-h-screen pt-16 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <div class="absolute w-64 h-64 rounded-full top-20 left-10 bg-indigo-600/10 blur-3xl"></div>
+        <div class="absolute w-64 h-64 rounded-full bottom-20 right-10 bg-blue-600/10 blur-3xl"></div>
+    </div>
+
+    <div class="container z-10 px-4 mx-auto sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center text-center">
+            <div class="inline-flex items-center justify-center p-2 mb-6 rounded-full bg-slate-800/50 backdrop-blur-sm">
+                <span class="px-4 text-sm font-medium text-indigo-400">Available for new projects</span>
+            </div>
+
+            <h1 class="mb-6 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
+                <span class="block">Hi, I'm {data.name}</span>
+                <div class="h-12 mt-2">
+                    <span id="typing-text" class="text-indigo-400"></span>
+                    <span id="typing-cursor" class="ml-1 inline-block w-2 h-8 bg-indigo-400 animate-blink"></span>
+                </div>
+            </h1>
+
+            <p class="max-w-3xl mb-8 text-xl text-slate-300">
+                I build exceptional digital experiences, from responsive frontends to robust backends, with a
+                passion for blockchain solutions and decentralized applications.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <a href="#contact" class="px-8 py-3 font-medium text-white transition-colors duration-300 bg-indigo-600 rounded-full hover:bg-indigo-700">Get in Touch</a>
+                <a href="/services" class="px-8 py-3 font-medium transition-colors duration-300 bg-transparent border rounded-full border-slate-600 hover:border-indigo-400 text-slate-200 hover:text-indigo-400">View My Services</a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-8 mt-8">
+                <div class="flex flex-col items-center">
+                    <UiIcon name="code" size={40} class="mb-2 text-indigo-400" />
+                    <span class="text-slate-300">Frontend</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <UiIcon name="database" size={40} class="mb-2 text-blue-400" />
+                    <span class="text-slate-300">Backend</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <UiIcon name="layers" size={40} class="mb-2 text-purple-400" />
+                    <span class="text-slate-300">Blockchain</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute transform -translate-x-1/2 bottom-4 left-1/2 animate-bounce">
+        <UiIcon name="chevron-down" size={32} class="text-slate-400" />
+    </div>
+</section>
+
+<script>
+    const fullText = 'Software Developer | Blockchain Enthusiast';
+    const typingText = document.getElementById('typing-text')!;
+    const cursor = document.getElementById('typing-cursor')!;
+    let index = 0;
+    let isTyping = true;
+
+    function type() {
+        if (isTyping) {
+            if (index < fullText.length) {
+                typingText.textContent = fullText.slice(0, index + 1);
+                index++;
+                setTimeout(type, 100);
+            } else {
+                isTyping = false;
+                cursor.classList.remove('animate-blink');
+                cursor.classList.add('opacity-0');
+                setTimeout(() => {
+                    index = 0;
+                    typingText.textContent = '';
+                    isTyping = true;
+                    cursor.classList.add('animate-blink');
+                    cursor.classList.remove('opacity-0');
+                    type();
+                }, 3000);
+            }
+        }
+    }
+
+    type();
+</script>
