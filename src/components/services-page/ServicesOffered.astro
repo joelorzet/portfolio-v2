@@ -51,7 +51,7 @@ const cards: ServiceCard[] = [
     <div class="container px-4 mx-auto sm:px-6 lg:px-8">
         <div class="mb-16 text-center">
             <h2 class="mb-2 text-3xl font-bold">Services Offered</h2>
-            <div class="w-20 h-1 mx-auto mb-6 bg-indigo-500"></div>
+            <div class="w-20 h-1 mx-auto mb-6 bg-accent-500"></div>
             <p class="max-w-3xl mx-auto text-slate-300">
                 From concept to deployment, I offer a range of development services tailored to your needs.
             </p>
@@ -60,12 +60,12 @@ const cards: ServiceCard[] = [
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {cards.map(({ key, label, description, callToAction, icon, deliverables, gridClass }) => (
                 <div class:list={[
-                    'flex flex-col p-6 transition-all duration-300 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700 hover:border-indigo-500/50',
+                    'flex flex-col p-6 transition-all duration-300 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700 hover:border-accent-500/50',
                     gridClass,
                 ]}>
                     <div class="flex items-center mb-4">
-                        <div class="p-3 mr-4 rounded-lg bg-indigo-500/10">
-                            {icon && <UiIcon name={icon} size={24} class="text-indigo-400" />}
+                        <div class="p-3 mr-4 rounded-lg bg-accent-500/10">
+                            {icon && <UiIcon name={icon} size={24} class="text-accent-400" />}
                         </div>
                         <h3 class="text-xl font-semibold">{label}</h3>
                     </div>
@@ -75,7 +75,7 @@ const cards: ServiceCard[] = [
                     <ul class="mb-6 space-y-2 grow">
                         {deliverables.map((item) => (
                             <li class="flex items-start text-sm text-slate-400">
-                                <span class="mr-2 text-indigo-400">&#x2713;</span>
+                                <span class="mr-2 text-accent-400">&#x2713;</span>
                                 {item}
                             </li>
                         ))}
@@ -85,7 +85,7 @@ const cards: ServiceCard[] = [
                         data-open-dialog
                         data-service={label}
                         data-message={callToAction}
-                        class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-indigo-400 transition-colors border rounded-lg border-indigo-500/50 hover:bg-indigo-600 hover:text-white cursor-pointer"
+                        class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-accent-400 transition-colors border rounded-lg border-accent-500/50 hover:bg-accent-600 hover:text-white cursor-pointer"
                     >
                         Inquire &rarr;
                     </button>

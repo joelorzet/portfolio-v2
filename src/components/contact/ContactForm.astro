@@ -1,7 +1,13 @@
 ---
 import UiIcon from '@/components/icons/UiIcon.astro';
+import { data } from '@/config/data';
+
+const servicesMap = Object.fromEntries(
+    Object.entries(data.services).map(([key, value]) => [key, { label: value.label, callToAction: value.callToAction }])
+);
 ---
 
+<script id="services-data" type="application/json" set:html={JSON.stringify(servicesMap)} />
 <div class="p-6 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700">
     <h3 class="mb-6 text-xl font-semibold">Send Me a Message</h3>
 
@@ -9,27 +15,27 @@ import UiIcon from '@/components/icons/UiIcon.astro';
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
                 <label for="name" class="block mb-1 text-sm font-medium text-slate-300">Your Name</label>
-                <input type="text" id="name" name="name" required class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Your name" />
+                <input type="text" id="name" name="name" required class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="Your name" />
             </div>
             <div>
                 <label for="email" class="block mb-1 text-sm font-medium text-slate-300">Email Address</label>
-                <input type="email" id="email" name="email" required class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="you@company.com" />
+                <input type="email" id="email" name="email" required class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="you@company.com" />
             </div>
         </div>
 
         <div>
             <label for="subject" class="block mb-1 text-sm font-medium text-slate-300">Subject</label>
-            <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Project Inquiry" value="Project Inquiry" />
+            <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="Project Inquiry" value="Project Inquiry" />
         </div>
 
         <div>
             <label for="message" class="block mb-1 text-sm font-medium text-slate-300">Your Message</label>
-            <textarea id="message" name="message" required rows="5" class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent" placeholder="Hello, I'd like to discuss a project..."></textarea>
+            <textarea id="message" name="message" required rows="5" class="w-full px-4 py-2 text-white transition-colors border rounded-lg border-slate-600 bg-slate-700/50 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent" placeholder="Hello, I'd like to discuss a project..."></textarea>
         </div>
 
         <div id="submit-message" class="hidden p-3 rounded-lg"></div>
 
-        <button type="submit" id="submit-btn" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-indigo-600 hover:bg-indigo-700 text-white">
+        <button type="submit" id="submit-btn" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-accent-600 hover:bg-accent-700 text-white">
             <span id="submit-default" class="inline-flex items-center gap-2"><UiIcon name="send" size={20} /> Send Message</span>
             <span id="submit-loading" class="hidden inline-flex items-center gap-2"><UiIcon name="loading" size={20} class="animate-spin" /> Sending...</span>
         </button>
@@ -43,12 +49,16 @@ import UiIcon from '@/components/icons/UiIcon.astro';
     const submitLoading = document.getElementById('submit-loading')!;
     const submitMessage = document.getElementById('submit-message')!;
 
-    // Check for service param in URL
+    // Check for service param in URL and pre-fill form
+    const servicesData = JSON.parse(document.getElementById('services-data')!.textContent!);
     const params = new URLSearchParams(window.location.search);
-    const service = params.get('service');
-    if (service) {
+    const serviceKey = params.get('service');
+    if (serviceKey && servicesData[serviceKey]) {
+        const service = servicesData[serviceKey];
         const subject = document.getElementById('subject') as HTMLInputElement;
-        subject.value = `${service.charAt(0).toUpperCase() + service.slice(1)} Inquiry`;
+        const message = document.getElementById('message') as HTMLTextAreaElement;
+        subject.value = `${service.label} Inquiry`;
+        message.value = service.callToAction;
     }
 
     form.addEventListener('submit', async (e) => {
@@ -57,7 +67,7 @@ import UiIcon from '@/components/icons/UiIcon.astro';
         submitDefault.classList.add('hidden');
         submitLoading.classList.remove('hidden');
         submitBtn.classList.add('bg-slate-600', 'cursor-not-allowed');
-        submitBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700');
+        submitBtn.classList.remove('bg-accent-600', 'hover:bg-accent-700');
 
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
@@ -80,7 +90,7 @@ import UiIcon from '@/components/icons/UiIcon.astro';
             submitDefault.classList.remove('hidden');
             submitLoading.classList.add('hidden');
             submitBtn.classList.remove('bg-slate-600', 'cursor-not-allowed');
-            submitBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
+            submitBtn.classList.add('bg-accent-600', 'hover:bg-accent-700');
 
             submitMessage.classList.remove('hidden');
             submitMessage.classList.add('bg-green-500/20', 'text-green-400');

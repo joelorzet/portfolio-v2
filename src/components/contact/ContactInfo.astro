@@ -9,14 +9,14 @@ import SocialLinks from '@/components/icons/social/SocialLinks.astro';
 
     <div class="space-y-4">
         <div class="flex items-start">
-            <div class="p-2 mr-4 rounded-md bg-indigo-500/10">
-                <UiIcon name="mail" size={20} class="text-indigo-400" />
+            <div class="p-2 mr-4 rounded-md bg-accent-500/10">
+                <UiIcon name="mail" size={20} class="text-accent-400" />
             </div>
             <div>
                 <p class="text-sm text-slate-400">Email</p>
                 <a
                     href={`mailto:${data.email}`}
-                    class="transition-colors text-slate-200 hover:text-indigo-400"
+                    class="transition-colors text-slate-200 hover:text-accent-400"
                 >
                     {data.email}
                 </a>
@@ -24,8 +24,8 @@ import SocialLinks from '@/components/icons/social/SocialLinks.astro';
         </div>
 
         <div class="flex items-start">
-            <div class="p-2 mr-4 rounded-md bg-indigo-500/10">
-                <UiIcon name="marker-pin" size={20} class="text-indigo-400" />
+            <div class="p-2 mr-4 rounded-md bg-accent-500/10">
+                <UiIcon name="marker-pin" size={20} class="text-accent-400" />
             </div>
             <div>
                 <p class="text-sm text-slate-400">Location</p>

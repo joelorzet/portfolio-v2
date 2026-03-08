@@ -33,9 +33,9 @@ function resolveHref(href: string): string {
                 <h3 class="mb-4 text-lg font-semibold text-white">Quick Links</h3>
                 <ul class="space-y-2">
                     {quickLinks.map((item) => (
-                        <li><a href={resolveHref(`#${item.toLowerCase()}`)} class="transition-colors text-slate-400 hover:text-indigo-400">{item}</a></li>
+                        <li><a href={resolveHref(`#${item.toLowerCase()}`)} class="transition-colors text-slate-400 hover:text-accent-400">{item}</a></li>
                     ))}
-                    <li><a href="/services" class="transition-colors text-slate-400 hover:text-indigo-400">Work with me</a></li>
+                    <li><a href="/services" class="transition-colors text-slate-400 hover:text-accent-400">Work with me</a></li>
                 </ul>
             </div>
 

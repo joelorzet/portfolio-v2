@@ -34,7 +34,7 @@ const steps = [
     <div class="container px-4 mx-auto sm:px-6 lg:px-8">
         <div class="mb-16 text-center">
             <h2 class="mb-2 text-3xl font-bold">How I Work</h2>
-            <div class="w-20 h-1 mx-auto mb-6 bg-indigo-500"></div>
+            <div class="w-20 h-1 mx-auto mb-6 bg-accent-500"></div>
             <p class="max-w-3xl mx-auto text-slate-300">
                 A clear, structured process from the first conversation to launch and beyond.
             </p>
@@ -42,11 +42,11 @@ const steps = [
 
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {steps.map((step, index) => (
-                <div class="relative p-6 text-center transition-all duration-300 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700 hover:border-indigo-500/50">
-                    <div class="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-indigo-500/10">
-                        <UiIcon name={step.iconName} size={24} class="text-indigo-400" />
+                <div class="relative p-6 text-center transition-all duration-300 border bg-slate-800/80 backdrop-blur-sm rounded-xl border-slate-700 hover:border-accent-500/50">
+                    <div class="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-accent-500/10">
+                        <UiIcon name={step.iconName} size={24} class="text-accent-400" />
                     </div>
-                    <div class="absolute flex items-center justify-center w-6 h-6 text-xs font-bold rounded-full top-3 right-3 bg-indigo-600 text-white">
+                    <div class="absolute flex items-center justify-center w-6 h-6 text-xs font-bold rounded-full top-3 right-3 bg-accent-600 text-white">
                         {index + 1}
                     </div>
                     <h3 class="mb-2 text-lg font-semibold">{step.title}</h3>
@@ -56,7 +56,7 @@ const steps = [
         </div>
 
         <div class="flex items-center justify-center gap-3 px-6 py-4 mx-auto mt-10 max-w-2xl rounded-xl border border-slate-700 bg-slate-800/60">
-            <UiIcon name="shield-tick" size={20} class="text-indigo-400 shrink-0" />
+            <UiIcon name="shield-tick" size={20} class="text-accent-400 shrink-0" />
             <p class="text-sm text-slate-300">
                 Every project starts with a <span class="font-medium text-slate-100">Non-Disclosure Agreement (NDA)</span> to protect your ideas and data. Confidentiality is guaranteed from day one.
             </p>
