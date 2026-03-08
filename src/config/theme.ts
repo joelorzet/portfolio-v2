@@ -99,8 +99,8 @@ const palettes: Record<ThemeName, ThemePalette> = {
 
 export const allPalettes = palettes;
 
-const defaultTheme: ThemeName = 'midnight';
+const defaultTheme: ThemeName = 'forest';
 const themeName = defaultTheme;
 
-export const theme = palettes[themeName] ?? palettes.midnight;
-export const currentTheme: ThemeName = themeName in palettes ? themeName : 'midnight';
+export const theme = palettes[themeName] ?? palettes.forest;
+export const currentTheme: ThemeName = themeName in palettes ? themeName : 'forest';
