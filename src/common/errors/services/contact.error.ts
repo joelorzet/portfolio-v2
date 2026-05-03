@@ -11,6 +11,6 @@ export class ContactError extends Error {
 export class ContactBadRequestError extends ContactError {
     constructor(message: string, status: number = 400) {
         super(message, status);
-        this.name = 'ContactBadRequestError';
+        this.name = 'ContactBadRequestError1s';
     }
 }
